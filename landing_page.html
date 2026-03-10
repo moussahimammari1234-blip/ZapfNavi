@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZapfNavi – Clever Tanken, Clever Sparen</title>
+    <meta name="description"
+        content="ZapfNavi ist dein intelligenter Begleiter für günstige Spritpreise. Vergleiche Benzin, E10 und Diesel in Echtzeit und nutze den smarten Preisalarm.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5E00;
+            --primary-glow: rgba(255, 94, 0, 0.6);
+            --bg-deep: #050508;
+            --bg-card: rgba(20, 20, 28, 0.5);
+            --text-main: #ffffff;
+            --text-muted: #a0aec0;
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --border-primary: rgba(255, 94, 0, 0.4);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image:
+                radial-gradient(circle at 10% 50%, rgba(255, 94, 0, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 90% 10%, rgba(255, 94, 0, 0.08) 0%, transparent 40%);
+        }
+
+        /* Nav */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 6%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 15, 19, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 8px 25px var(--primary-glow);
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px var(--primary-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            padding: 120px 6% 60px;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 127, 17, 0.1);
+            border: 1px solid var(--border-primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+            background: linear-gradient(135deg, #FF5E00, #FFC837);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .store-badges {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: #000;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #fff;
+            height: 56px;
+            min-width: 175px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-store:hover {
+            border-color: #fff;
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(255, 127, 17, 0.4);
+            z-index: 10;
+        }
+
+        .btn-store .badge-icon {
+            height: 28px;
+            width: 28px;
+            object-fit: contain;
+            margin-right: 12px;
+        }
+
+        .btn-store .badge-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 1px;
+        }
+
+        .btn-store .small {
+            font-size: 10px;
+            line-height: 1.1;
+            margin-bottom: 2px;
+            font-weight: 500;
+            color: #a1a1aa;
+            text-transform: uppercase;
+        }
+
+        .btn-store .large {
+            font-size: 17px;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        /* Eye-Catching Animation */
+        @keyframes subtleBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .anim-badge {
+            display: inline-block;
+            animation: subtleBounce 2.5s infinite ease-in-out;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: box-shadow 0.3s ease;
+            height: 48px;
+        }
+
+        .anim-badge:hover {
+            box-shadow: 0 10px 25px rgba(255, 127, 17, 0.4);
+            animation-play-state: paused;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 320px;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.8));
+            border-radius: 30px;
+            border: 4px solid #111;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(20, 20, 26, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-primary);
+            padding: 16px 24px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .fc-1 {
+            top: 20%;
+            left: -10%;
+            animation: float-delayed 7s ease-in-out infinite;
+        }
+
+        .fc-2 {
+            bottom: 15%;
+            right: -15%;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .fc-icon {
+            font-size: 24px;
+        }
+
+        .fc-text strong {
+            display: block;
+            font-size: 18px;
+            color: var(--primary);
+        }
+
+        .fc-text span {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 6%;
+            background: linear-gradient(180deg, var(--bg-deep) 0%, rgba(20, 20, 26, 1) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            padding: 50px 40px;
+            border-radius: 30px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-primary);
+            background: rgba(30, 30, 40, 0.6);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255, 94, 0, 0.15);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .f-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 94, 0, 0.1);
+            border: 1px solid rgba(255, 94, 0, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(255, 94, 0, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            padding: 100px 6%;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(255, 127, 17, 0.15) 0%, rgba(20, 20, 26, 0.8) 100%);
+            border: 1px solid var(--border-primary);
+            padding: 70px 40px;
+            border-radius: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-box p {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .stars {
+            color: #FFB800;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 6%;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 140px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .store-badges {
+                justify-content: center !important;
+            }
+
+            .hero-image {
+                margin-top: 40px;
+            }
+
+            .hero-image img {
+                max-width: 80%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .features {
+                padding: 60px 5%;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .feature-card {
+                padding: 30px 20px;
+            }
+
+            .btn-store {
+                min-width: 140px;
+                padding: 6px 12px;
+                height: 50px;
+            }
+
+            .btn-store .badge-icon {
+                height: 24px;
+                width: 24px;
+            }
+
+            .btn-store .large {
+                font-size: 14px;
+            }
+
+            .cta-box {
+                padding: 40px 20px;
+            }
+
+            .cta-box h2 {
+                font-size: 32px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+    </style>
+    <!-- Google Translate Script Styling -->
+    <style>
+        .goog-te-gadget {
+            font-family: 'Inter', sans-serif !important;
+            color: transparent !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .goog-te-gadget .goog-te-combo option {
+            color: #000;
+        }
+
+        .goog-logo-link {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            color: transparent !important;
+        }
+
+        .skiptranslate.goog-te-gadget>span {
+            display: none;
+        }
+
+        body {
+            top: 0px !important;
+        }
+
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">⛽ Zapf<span>Navi</span></div>
+        <div class="nav-links">
+            <a href="#features">Vorteile</a>
+            <a href="#calculators">Spar-Rechner</a>
+            <a href="#how-it-works">So geht's</a>
+            <a href="#download">Download</a>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div id="google_translate_element"></div>
+            <a href="#download" class="btn-primary">App holen</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">🔥 Neue Version für Deutschland verfügbar!</div>
+            <h1>Spare mindestens <span>10€</span> <br>bei jeder Tankfüllung.</h1>
+            <p>Teste ZapfNavi <strong>3 Tage völlig kostenlos!</strong> Danach nur 2,99€ pro Monat – unkompliziert und
+                <strong>jederzeit kündbar</strong>.
+            </p>
+
+            <div class="store-badges" style="justify-content: flex-start; align-items: center;">
+                <a href="#" class="btn-store anim-badge" style="animation-delay: 0s;">
+                    <svg class="badge-icon" viewBox="0 0 24 24">
+                        <path fill="#00e676"
+                            d="M4.6 1.8l12.7 12.7c.3.3.4.7.3 1.1l-1.9 1.9c-.2.2-.6.3-.9.1L2 4.9C1.7 4.6 1.6 4.2 1.7 3.8L3.6 1.9c.3-.2.7-.3 1-.1zM22 10.7l-4.5-2.6L12.7 13l4.8 4.8 4.5-2.6c.9-.5.9-1.8 0-2.3z" />
+                        <path fill="#ff3d00"
+                            d="M4.6 22.2L17.3 9.5c.3-.3.4-.7.3-1.1L15.7 6.5c-.2-.2-.6-.3-.9-.1L2 19.1c-.3.3-.2.7-.1 1.1l1.9 1.9c.2.2.6.3.8.1z" />
+                        <path fill="#ffc400"
+                            d="M12.7 11L7.9 6.2C7.3 5.6 6.3 5.6 5.8 6.2L1 11c-.6.6-.6 1.5 0 2.1l4.8 4.8c.6.6 1.5.6 2.1 0l4.8-4.8c.3-.3.3-.6 0-.9z" />
+                        <path fill="#2979ff"
+                            d="M11.3 12.4l4.8 4.8c.6.6 1.5.6 2.1 0l4.8-4.8c.6-.6.6-1.5 0-2.1l-4.8-4.8c-.6-.6-1.5-.6-2.1 0l-4.8 4.8c-.3.3-.3.6 0 .9z" />
+                    </svg>
+                    <div class="badge-text"><span class="small">JETZT BEI</span><span class="large">Google Play</span>
+                    </div>
+                </a>
+                <a href="#" class="btn-store anim-badge" style="animation-delay: 0.2s;">
+                    <svg class="badge-icon" viewBox="0 0 384 512" fill="#fff">
+                        <path
+                            d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                    </svg>
+                    <div class="badge-text"><span class="small">Laden im</span><span class="large">App Store</span>
+                    </div>
+                </a>
+                <a href="#" class="btn-store anim-badge" style="animation-delay: 0.4s;">
+                    <svg class="badge-icon" viewBox="0 0 24 24"
+                        style="fill:#fff; background: linear-gradient(135deg, #1f1f1f, #333); border-radius: 6px; padding: 3px;">
+                        <path
+                            d="M19 6h-3c0-2.21-1.79-4-4-4S8 3.79 8 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-2c1.1 0 2 .9 2 2H10c0-1.1.9-2 2-2z" />
+                    </svg>
+                    <div class="badge-text"><span class="small">ERHÄLTLICH IM</span><span class="large">Galaxy
+                            Store</span></div>
+                </a>
+                <a href="#" class="btn-store anim-badge" style="animation-delay: 0.6s;">
+                    <svg class="badge-icon" viewBox="0 0 24 24"
+                        style="fill:#E60012; background: #fff; border-radius: 6px; padding: 2px;">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                    </svg>
+                    <div class="badge-text"><span class="small">ENTDECKEN IN</span><span class="large">AppGallery</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="social-proof" style="justify-content: flex-start; margin-top: 30px;">
+                <div class="stars">★★★★★</div>
+                <span style="font-size: 14px; font-weight: 600;">Über 50.000+ Downloads</span>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="assets/img/media__1773004467926.jpg" alt="ZapfNavi Interaktive Karte">
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="features">
+        <div class="section-header">
+            <span
+                style="color: var(--primary); font-weight: 700; display: block; margin-bottom: 10px; letter-spacing: 2px;">DEINE
+                VORTEILE</span>
+            <h2>Warum tausende Fahrer ZapfNavi lieben</h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="f-icon">🗺️</div>
+                <h3>Interaktive Karte</h3>
+                <p>Erkenne sofort auf der Karte, welche Tankstellen günstig sind. Farben helfen dir bei der schnellen
+                    Entscheidung.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="f-icon">🔔</div>
+                <h3>Smart Preis-Alarm</h3>
+                <p>Unser Wächter checkt die Preise für dich. Sinkt der Preis auf dein Wunsch-Limit, bekommst du eine
+                    Push-Nachricht!</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="f-icon">🛤️</div>
+                <h3>Routenplaner</h3>
+                <p>Auf längeren Fahrten? Wir zeigen dir die günstigsten Tankstellen direkt auf oder nahe deiner
+                    Navigationsroute.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="f-icon">📈</div>
+                <h3>Preisentwicklung</h3>
+                <p>Analysiere Trends. Wir zeigen dir, ob der Preis aktuell steigt oder fällt, damit du immer den
+                    perfekten Moment erwischst.</p>
+            </div>
+        </div>
+
+        <div class="store-badges" style="margin-top: 60px; align-items: center; justify-content: center;">
+            <a href="#" class="btn-store anim-badge" style="animation-delay: 0s;">
+                <svg class="badge-icon" viewBox="0 0 24 24">
+                    <path fill="#00e676"
+                        d="M4.6 1.8l12.7 12.7c.3.3.4.7.3 1.1l-1.9 1.9c-.2.2-.6.3-.9.1L2 4.9C1.7 4.6 1.6 4.2 1.7 3.8L3.6 1.9c.3-.2.7-.3 1-.1zM22 10.7l-4.5-2.6L12.7 13l4.8 4.8 4.5-2.6c.9-.5.9-1.8 0-2.3z" />
+                    <path fill="#ff3d00"
+                        d="M4.6 22.2L17.3 9.5c.3-.3.4-.7.3-1.1L15.7 6.5c-.2-.2-.6-.3-.9-.1L2 19.1c-.3.3-.2.7-.1 1.1l1.9 1.9c.2.2.6.3.8.1z" />
+                    <path fill="#ffc400"
+                        d="M12.7 11L7.9 6.2C7.3 5.6 6.3 5.6 5.8 6.2L1 11c-.6.6-.6 1.5 0 2.1l4.8 4.8c.6.6 1.5.6 2.1 0l4.8-4.8c.3-.3.3-.6 0-.9z" />
+                    <path fill="#2979ff"
+                        d="M11.3 12.4l4.8 4.8c.6.6 1.5.6 2.1 0l4.8-4.8c.6-.6.6-1.5 0-2.1l-4.8-4.8c-.6-.6-1.5-.6-2.1 0l-4.8 4.8c-.3.3-.3.6 0 .9z" />
+                </svg>
+                <div class="badge-text"><span class="small">JETZT BEI</span><span class="large">Google Play</span></div>
+            </a>
+            <a href="#" class="btn-store anim-badge" style="animation-delay: 0.2s;">
+                <svg class="badge-icon" viewBox="0 0 384 512" fill="#fff">
+                    <path
+                        d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                </svg>
+                <div class="badge-text"><span class="small">Laden im</span><span class="large">App Store</span></div>
+            </a>
+            <a href="#" class="btn-store anim-badge" style="animation-delay: 0.4s;">
+                <svg class="badge-icon" viewBox="0 0 24 24"
+                    style="fill:#fff; background: linear-gradient(135deg, #1f1f1f, #333); border-radius: 6px; padding: 3px;">
+                    <path
+                        d="M19 6h-3c0-2.21-1.79-4-4-4S8 3.79 8 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-2c1.1 0 2 .9 2 2H10c0-1.1.9-2 2-2z" />
+                </svg>
+                <div class="badge-text"><span class="small">ERHÄLTLICH IM</span><span class="large">Galaxy Store</span>
+                </div>
+            </a>
+            <a href="#" class="btn-store anim-badge" style="animation-delay: 0.6s;">
+                <svg class="badge-icon" viewBox="0 0 24 24"
+                    style="fill:#E60012; background: #fff; border-radius: 6px; padding: 2px;">
+                    <path
+                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                </svg>
+                <div class="badge-text"><span class="small">ENTDECKEN IN</span><span class="large">AppGallery</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- So Geht's -->
+    <section id="how-it-works" class="features" style="background: var(--bg-deep); padding-bottom: 80px;">
+        <div class="section-header">
+            <span
+                style="color: var(--primary); font-weight: 700; display: block; margin-bottom: 10px; letter-spacing: 2px;">SO
+                GEHT'S</span>
+            <h2>In 3 einfachen Schritten sparen</h2>
+            <p style="color: var(--text-muted); font-size: 18px; margin-top: 15px;">So schnell bist du startklar für
+                günstige Tankfüllungen.</p>
+        </div>
+        <div
+            style="display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; text-align: center; max-width: 1000px; margin: 0 auto; padding: 0 20px;">
+            <div style="flex: 1; min-width: 250px; background: var(--bg-card); padding: 40px 30px; border-radius: 20px; border: 1px solid var(--border-subtle); transition: var(--transition);"
+                onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-5px)'"
+                onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+                <div
+                    style="font-size: 48px; font-weight: 900; color: var(--primary); margin-bottom: 20px; opacity: 0.8;">
+                    1</div>
+                <h3 style="font-size: 22px; margin-bottom: 15px; color: #fff;">App herunterladen</h3>
+                <p style="color: var(--text-muted);">Lade ZapfNavi kostenlos herunter und starte deinen
+                    3-Tage-Testzeitraum ohne Risiko.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: var(--bg-card); padding: 40px 30px; border-radius: 20px; border: 1px solid var(--border-subtle); transition: var(--transition);"
+                onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-5px)'"
+                onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+                <div
+                    style="font-size: 48px; font-weight: 900; color: var(--primary); margin-bottom: 20px; opacity: 0.8;">
+                    2</div>
+                <h3 style="font-size: 22px; margin-bottom: 15px; color: #fff;">Präferenzen einstellen</h3>
+                <p style="color: var(--text-muted);">Wähle deinen Kraftstoff (z.B. E5 oder Diesel) und lege deine
+                    Preisalarme fest.</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background: var(--bg-card); padding: 40px 30px; border-radius: 20px; border: 1px solid var(--border-subtle); transition: var(--transition);"
+                onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-5px)'"
+                onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+                <div
+                    style="font-size: 48px; font-weight: 900; color: var(--primary); margin-bottom: 20px; opacity: 0.8;">
+                    3</div>
+                <h3 style="font-size: 22px; margin-bottom: 15px; color: #fff;">Günstig tanken</h3>
+                <p style="color: var(--text-muted);">Navigiere zur günstigsten Tankstelle in der Nähe und spare bei
+                    jedem vollen Tank!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Screenshots Showcase -->
+    <section id="app-screens" class="features" style="background: var(--bg-deep); padding-bottom: 100px;">
+        <div class="section-header">
+            <span
+                style="color: var(--primary); font-weight: 700; display: block; margin-bottom: 10px; letter-spacing: 2px;">APP
+                EINBLICKE</span>
+            <h2>Entdecke das neue ZapfNavi</h2>
+            <p style="color: var(--text-muted); font-size: 18px; margin-top: 15px;">Ein Design, das so gut aussieht, wie
+                es funktioniert. Hier sind einige der spannendsten Funktionen im Überblick.</p>
+        </div>
+
+        <div
+            style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; max-width: 1400px; margin: 0 auto; padding: 0 20px;">
+
+            <!-- Screen 1: Home/Tanken -->
+            <div style="flex: 1; min-width: 240px; max-width: 280px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff;">Übersichtliche Preise
+                </h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Erkenne auf einen Blick die
+                    günstigsten
+                    Tankstellen. "Top Deals" werden direkt hervorgehoben.</p>
+                <img src="assets/img/media__1773001823381.jpg" alt="Übersichtliche Preise"
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); transition: var(--transition);"
+                    onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+            </div>
+
+            <!-- Screen 2: Sortierung -->
+            <div style="flex: 1; min-width: 240px; max-width: 280px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff;">Intelligente Sortierung
+                </h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Ordne die Liste nach
+                    niedrigstem Preis oder
+                    kürzester Entfernung – ganz nach deinem Bedarf.</p>
+                <img src="assets/img/media__1773001823719.jpg" alt="Intelligente Sortierung"
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); transition: var(--transition);"
+                    onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+            </div>
+
+            <!-- Screen 3: Filter -->
+            <div style="flex: 1; min-width: 240px; max-width: 280px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff;">Individuelle Filter
+                </h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Wähle Kraftstoffart, Radius
+                    und zeige nur
+                    aktuell geöffnete Tankstellen an.</p>
+                <img src="assets/img/media__1773001823760.jpg" alt="Individuelle Filter"
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); transition: var(--transition);"
+                    onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+            </div>
+
+            <!-- Screen 4: Routenplaner -->
+            <div style="flex: 1; min-width: 240px; max-width: 280px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff;">Genialer Routenplaner
+                </h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Plane deine Reise und finde
+                    die günstigsten
+                    Zapfsäulen direkt entlang deiner Fahrtroute.</p>
+                <img src="assets/img/media__1773001823782.jpg" alt="Genialer Routenplaner"
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); transition: var(--transition);"
+                    onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+            </div>
+
+            <!-- Screen 5: Detail -->
+            <div style="flex: 1; min-width: 240px; max-width: 280px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff;">Detaillierte Infos</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Prüfe Öffnungszeiten,
+                    Entfernung und lass Preise durch die Community bestätigen.</p>
+                <img src="assets/img/media__1773001823820.jpg" alt="Detaillierte Infos"
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); transition: var(--transition);"
+                    onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+            </div>
+
+            <!-- Screen 6: Interaktive Karte -->
+            <div style="flex: 1; min-width: 240px; max-width: 280px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff;">Interaktive Karte</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Finde die günstigsten
+                    Tankstellen um dich herum direkt auf unserer schnellen Karte.</p>
+                <img src="assets/img/media__1773004467926.jpg" alt="Interaktive Karte"
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); transition: var(--transition);"
+                    onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+            </div>
+
+            <!-- Screen 7: Preisalarm -->
+            <div style="flex: 1; min-width: 240px; max-width: 280px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff;">Smart Preisalarm</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Lege deinen Wunschpreis fest
+                    und wir benachrichtigen dich, sobald der Preis fällt.</p>
+                <img src="assets/img/media__1773004467932.jpg" alt="Preisalarm"
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); transition: var(--transition);"
+                    onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+            </div>
+
+            <!-- Screen 8: Erweiterte Settings -->
+            <div style="flex: 1; min-width: 240px; max-width: 280px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff;">Erweiterte
+                    Alarm-Optionen</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Konfiguriere Ruhezeiten,
+                    Sound und lasse Alarme nur bei geöffneten Stationen zu.</p>
+                <img src="assets/img/media__1773004467949.jpg" alt="Erweiterte Einstellungen"
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); transition: var(--transition);"
+                    onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+            </div>
+
+            <!-- Screen 9: Favoriten -->
+            <div style="flex: 1; min-width: 240px; max-width: 280px; text-align: center;">
+                <h3 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #fff;">Deine Favoriten</h3>
+                <p style="color: var(--text-muted); font-size: 15px; margin-bottom: 20px;">Speichere deine
+                    Stammtankstellen, um ihre Preise und Entfernung im Blick zu haben.</p>
+                <img src="assets/img/media__1773004467962.jpg" alt="Deine Favoriten"
+                    style="width: 100%; border-radius: 20px; box-shadow: 0 20px 45px rgba(0,0,0,0.6); border: 1px solid var(--border-subtle); transition: var(--transition);"
+                    onmouseover="this.style.borderColor='var(--primary)'; this.style.transform='translateY(-10px)'"
+                    onmouseout="this.style.borderColor='var(--border-subtle)'; this.style.transform='translateY(0)'">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Spar-Rechner Section -->
+    <section id="calculators" class="features"
+        style="background: var(--bg-deep); padding-bottom: 120px; text-align: center;">
+        <div class="section-header">
+            <span
+                style="color: var(--primary); font-weight: 700; display: block; margin-bottom: 10px; letter-spacing: 2px;">POTENZIAL</span>
+            <h2>Berechne deine Ersparnis</h2>
+            <p style="color: var(--text-muted); font-size: 18px; margin-top: 15px;">Finde heraus, wie viel du im Jahr
+                sparen kannst, wenn du ZapfNaviutzt.</p>
+        </div>
+
+        <div
+            style="max-width: 600px; margin: 0 auto; background: var(--bg-card); border: 1px solid var(--border-primary); border-radius: 30px; padding: 50px 30px; box-shadow: 0 20px 50px rgba(255, 94, 0, 0.15); position: relative; overflow: hidden;">
+            <div
+                style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--primary), transparent);">
+            </div>
+            <h3 style="font-size: 24px; margin-bottom: 25px; color: #fff; font-weight:800;">Wie oft tankst du pro Monat?
+            </h3>
+
+            <div
+                style="display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--text-muted); font-weight: 600;">
+                <span>1x</span>
+                <span id="tankCount" style="color: var(--primary); font-size: 24px; font-weight: 800;">3x</span>
+                <span>10x</span>
+            </div>
+
+            <input type="range" id="tankSlider" min="1" max="10" value="3"
+                style="width: 100%; height: 8px; border-radius: 4px; background: rgba(255,255,255,0.1); outline: none; -webkit-appearance: none; margin-bottom: 40px; cursor: pointer;">
+            <style>
+                #tankSlider::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background: var(--primary);
+                    cursor: pointer;
+                    box-shadow: 0 0 20px var(--primary-glow);
+                    border: 3px solid #fff;
+                    transition: transform 0.2s;
+                }
+
+                #tankSlider::-webkit-slider-thumb:hover {
+                    transform: scale(1.1);
+                }
+            </style>
+
+            <div style="font-size: 18px; color: var(--text-muted); margin-bottom: 10px;">Deine mögliche Ersparnis im
+                Jahr:</div>
+            <div id="saveAmount"
+                style="font-size: 56px; font-weight: 900; color: #10B981; letter-spacing: -2px; margin-bottom: 15px; text-shadow: 0 10px 30px rgba(16, 185, 129, 0.3); transition: all 0.3s ease;">
+                ~ 360 €
+            </div>
+            <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 30px; opacity: 0.7;">(Ausgehend von ø
+                10€ Ersparnis pro Volltankung)</p>
+
+            <a href="#download" class="btn-primary"
+                style="font-size: 18px; padding: 18px 40px; width: 100%; border-radius: 100px;">Jetzt die Ersparnis
+                sichern</a>
+        </div>
+
+        <script>
+            const slider = document.getElementById('tankSlider');
+            const count = document.getElementById('tankCount');
+            const amount = document.getElementById('saveAmount');
+            slider.addEventListener('input', function () {
+                count.innerHTML = this.value + 'x';
+                const money = this.value * 10 * 12;
+                amount.innerHTML = '~ ' + money.toLocaleString('de-DE') + ' €';
+            });
+        </script>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="features"
+        style="background: linear-gradient(180deg, var(--bg-deep) 0%, rgba(20, 20, 26, 1) 100%); padding-bottom: 100px;">
+        <div class="section-header">
+            <span
+                style="color: var(--primary); font-weight: 700; display: block; margin-bottom: 10px; letter-spacing: 2px;">FAQ</span>
+            <h2>Häufig gestellte Fragen</h2>
+            <p style="color: var(--text-muted); font-size: 18px; margin-top: 15px;">Alles, was du vor dem Download
+                wissen musst.</p>
+        </div>
+
+        <div
+            style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; padding: 0 20px;">
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    1. Wie funktioniert die 3-Tage-Testphase? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">Du kannst alle
+                    Premium-Funktionen von ZapfNavi für 3 Tage völlig kostenlos testen. Erst danach wird die geringe
+                    monatliche Gebühr fällig. Du bezahlst also nur, wenn du zufrieden bist und wirklich sparst!</p>
+            </details>
+
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    2. Wie leicht kann ich das Abo kündigen? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">Sehr leicht!
+                    Du hast die volle Kontrolle und kannst dein Abo jederzeit mit nur wenigen Klicks direkt im App Store
+                    oder Google Play Store kündigen. Keine versteckten Fristen.</p>
+            </details>
+
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    3. Spare ich wirklich mehr, als die App kostet? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">Absolut.
+                    Unsere User sparen im Schnitt 10€ bis 15€ pro Tankfüllung. Bei sensationellen 2,99€ im Monat hast du
+                    die Kosten der App oft schon beim ersten Tanken mehr als wieder drin!</p>
+            </details>
+
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    4. Woher stammen die Preisdaten? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">Wir beziehen
+                    unsere Daten offiziell über die Schnittstelle der Markttransparenzstelle für Kraftstoffe (MTS-K)
+                    beim Bundeskartellamt. So garantieren wir dir absolut verlässliche Echtzeitpreise.</p>
+            </details>
+
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    5. Funktioniert der Preisalarm automatisch? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">Ja! Du legst
+                    deinen persönlichen Wunschpreis fest. ZapfNavi überwacht die Preise im Hintergrund und schickt dir
+                    sofort eine Push-Nachricht, sobald eine Tankstelle in deiner Nähe diesen Preis erreicht.</p>
+            </details>
+
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    6. Muss ich mich registrieren, um die App zu nutzen? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">Nein, du
+                    kannst ZapfNavi sofort nach dem Download öffnen. Eine Registrierung ist rein optional, um
+                    Einstellungen geräteübergreifend zu speichern.</p>
+            </details>
+
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    7. Was bedeutet der "Top Deal" Badge? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">Tankstellen,
+                    die in deinem gewählten Umkreis aktuell den absolut günstigsten Preis anbieten, werden in der App
+                    grün und als "Top Deal" markiert. So musst du nicht lange suchen.</p>
+            </details>
+
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    8. Ist ZapfNavi auch während der Navigation nutzbar? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">Natürlich.
+                    Unser Routenplaner findet die besten Preise direkt auf deiner Route. Mit einem Klick öffnet sich
+                    nahtlos deine bevorzugte Navigations-App mit dem Ziel.</p>
+            </details>
+
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    9. Werden meine Standortdaten sicher behandelt? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">Datenschutz
+                    steht bei uns an erster Stelle. Dein Standort wird ausschließlich lokal zur Preissuche verwendet und
+                    niemals getrackt oder verkauft.</p>
+            </details>
+
+            <details
+                style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 18px 24px; cursor: pointer;">
+                <summary
+                    style="font-weight: 700; font-size: 18px; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center; color: #fff;">
+                    10. Für welche Smartphones ist die App verfügbar? <span
+                        style="color: var(--primary); font-size: 24px; font-weight: 400;">+</span>
+                </summary>
+                <p style="color: var(--text-muted); margin-top: 15px; font-size: 16px; line-height: 1.6;">ZapfNavi ist
+                    optimiert für alle aktuellen Endgeräte. Du findest unsere App im Google Play Store, App Store,
+                    Galaxy Store sowie in der AppGallery.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="download" class="cta-section">
+        <div class="cta-box">
+            <h2>Bist du bereit zu sparen?</h2>
+            <p>Teste ZapfNavi <strong>3 Tage kostenlos</strong>. Danach nur 2,99€ pro Monat – jederzeit kündbar.</p>
+
+            <div class="store-badges"
+                style="justify-content: center; align-items: center; margin-top: 40px; margin-bottom: 30px;">
+                <a href="#" class="btn-store anim-badge" style="animation-delay: 0s;">
+                    <svg class="badge-icon" viewBox="0 0 24 24">
+                        <path fill="#00e676"
+                            d="M4.6 1.8l12.7 12.7c.3.3.4.7.3 1.1l-1.9 1.9c-.2.2-.6.3-.9.1L2 4.9C1.7 4.6 1.6 4.2 1.7 3.8L3.6 1.9c.3-.2.7-.3 1-.1zM22 10.7l-4.5-2.6L12.7 13l4.8 4.8 4.5-2.6c.9-.5.9-1.8 0-2.3z" />
+                        <path fill="#ff3d00"
+                            d="M4.6 22.2L17.3 9.5c.3-.3.4-.7.3-1.1L15.7 6.5c-.2-.2-.6-.3-.9-.1L2 19.1c-.3.3-.2.7-.1 1.1l1.9 1.9c.2.2.6.3.8.1z" />
+                        <path fill="#ffc400"
+                            d="M12.7 11L7.9 6.2C7.3 5.6 6.3 5.6 5.8 6.2L1 11c-.6.6-.6 1.5 0 2.1l4.8 4.8c.6.6 1.5.6 2.1 0l4.8-4.8c.3-.3.3-.6 0-.9z" />
+                        <path fill="#2979ff"
+                            d="M11.3 12.4l4.8 4.8c.6.6 1.5.6 2.1 0l4.8-4.8c.6-.6.6-1.5 0-2.1l-4.8-4.8c-.6-.6-1.5-.6-2.1 0l-4.8 4.8c-.3.3-.3.6 0 .9z" />
+                    </svg>
+                    <div class="badge-text"><span class="small">JETZT BEI</span><span class="large">Google Play</span>
+                    </div>
+                </a>
+                <a href="#" class="btn-store anim-badge" style="animation-delay: 0.2s;">
+                    <svg class="badge-icon" viewBox="0 0 384 512" fill="#fff">
+                        <path
+                            d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+                    </svg>
+                    <div class="badge-text"><span class="small">Laden im</span><span class="large">App Store</span>
+                    </div>
+                </a>
+                <a href="#" class="btn-store anim-badge" style="animation-delay: 0.4s;">
+                    <svg class="badge-icon" viewBox="0 0 24 24"
+                        style="fill:#fff; background: linear-gradient(135deg, #1f1f1f, #333); border-radius: 6px; padding: 3px;">
+                        <path
+                            d="M19 6h-3c0-2.21-1.79-4-4-4S8 3.79 8 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-2c1.1 0 2 .9 2 2H10c0-1.1.9-2 2-2z" />
+                    </svg>
+                    <div class="badge-text"><span class="small">ERHÄLTLICH IM</span><span class="large">Galaxy
+                            Store</span></div>
+                </a>
+                <a href="#" class="btn-store anim-badge" style="animation-delay: 0.6s;">
+                    <svg class="badge-icon" viewBox="0 0 24 24"
+                        style="fill:#E60012; background: #fff; border-radius: 6px; padding: 2px;">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                    </svg>
+                    <div class="badge-text"><span class="small">ENTDECKEN IN</span><span class="large">AppGallery</span>
+                    </div>
+                </a>
+            </div>
+            <div class="social-proof">
+                <div class="stars">★★★★★</div>
+                <span style="font-weight: 500;">4.8/5 im Google Play Store</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="copyright">
+            &copy; 2026 ZapfNavi. Alle Rechte vorbehalten.
+        </div>
+        <div class="footer-links">
+            <a href="datenschutzerklaerung.html">Datenschutz</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="mailto:moussahimammari1234@gmail.com">Kontakt</a>
+        </div>
+    </footer>
+
+    <!-- Google Translate Injection -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'de',
+                includedLanguages: 'ar,uk,pl,tr,hu,en,de',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+
+</html>

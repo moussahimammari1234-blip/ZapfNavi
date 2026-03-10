@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Short launcher label — no truncation on any standard launcher -->
+    <string name="app_name_short">ZapfNavi</string>
+    <!-- Full marketing name — used in About/Settings/legal screens -->
+    <string name="app_name_long">ZapfNavi: Günstig Tanken</string>
+</resources>

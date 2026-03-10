@@ -1,0 +1,391 @@
+const fs = require('fs');
+
+const html = `<!DOCTYPE html>
+<html lang="de" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ZapfNavi – Günstig Tanken & Sparen | Echtzeit Spritpreise</title>
+    <meta name="description"
+        content="Spare bis zu 7€ bei jeder Tankfüllung! ZapfNavi vergleicht Echtzeit-Spritpreise von 14.000+ Tankstellen in Deutschland. Jetzt kostenlos testen.">
+    <meta name="keywords"
+        content="tankstellen, spritpreise, benzinpreise, günstig tanken, diesel, e5, e10, preisvergleich, zapfnavi">
+    <meta property="og:title" content="ZapfNavi – Günstig Tanken & Sparen">
+    <meta property="og:description" content="Spare bis zu 7€ bei jeder Tankfüllung mit Echtzeit-Spritpreisen.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ═══ NAV ═══ -->
+    <nav class="nav">
+        <div class="nav-logo"><img src="../assets/icon/launcher_icon.png" alt="ZapfNavi Icon" style="width:36px;height:36px;border-radius:10px;box-shadow: 0 4px 12px rgba(255,184,0,0.3);"> Zapf<b>Navi</b></div>
+        <div class="nav-links">
+            <a href="#features" data-i18n="nav_features">Vorteile</a>
+            <a href="#savings" data-i18n="nav_savings">Sparen</a>
+            <a href="#pricing" data-i18n="nav_pricing">Preise</a>
+            <a href="#download" data-i18n="nav_download">Download</a>
+        </div>
+        <div class="nav-right">
+            <select class="lang-select" id="langSwitcher" aria-label="Language">
+                <option value="de">🇩🇪 Deutsch</option>
+                <option value="en">🇬🇧 English</option>
+                <option value="it">🇮🇹 Italiano</option>
+                <option value="pl">🇵🇱 Polski</option>
+                <option value="tr">🇹🇷 Türkçe</option>
+                <option value="ar">🇸🇦 العربية</option>
+            </select>
+            <a href="#download" class="btn-nav" data-i18n="nav_cta">App holen</a>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+        <div class="hero-text">
+            <div class="hero-badge" data-i18n="hero_badge">🔥 2 Tage komplett kostenlos testen!</div>
+            <h1 data-i18n="hero_title">Spare bis zu <span class="hl">7€</span> bei jeder Tankfüllung.</h1>
+            <p class="sub" data-i18n="hero_sub">Mit ZapfNavi findest du sofort die günstigsten Tankstellen –
+                Echtzeit-Preise, smarter Preisalarm und bis zu 30€ Ersparnis pro Monat.</p>
+            <div class="store-badges" id="badges-hero"></div>
+            <div class="hero-social">
+                <div class="hero-stars">★★★★★</div>
+                <span data-i18n="hero_users">Mehr als 10.000 Nutzer sparen bereits</span>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <img src="../assets/marketing/landing_page_hero_ultra_clear_1772967988887.png" alt="ZapfNavi App" class="hero-phone">
+            <div class="float-card fc-left">
+                <span class="fc-em">💰</span>
+                <div><span class="fc-val">-7,50€</span><span class="fc-lbl" data-i18n="fc_saved">Gespart heute</span>
+                </div>
+            </div>
+            <div class="float-card fc-right">
+                <span class="fc-em">📍</span>
+                <div><span class="fc-val">1,459€</span><span class="fc-lbl" data-i18n="fc_best">Bester Preis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TRUST BAR ═══ -->
+    <div class="section" style="padding:20px 5%">
+        <div class="trust-bar">
+            <div class="trust-item"><span>🔒</span> <b data-i18n="trust_secure">DSGVO-konform</b></div>
+            <div class="trust-item"><span>⚡</span> <b data-i18n="trust_realtime">Echtzeit-Preise</b></div>
+            <div class="trust-item"><span>🆓</span> <b data-i18n="trust_free">Kostenlos testen</b></div>
+            <div class="trust-item"><span>🇩🇪</span> <b data-i18n="trust_germany">14.000+ Tankstellen</b></div>
+        </div>
+    </div>
+
+    <!-- ═══ PAIN POINTS ═══ -->
+    <section class="section" id="painpoints" style="padding-bottom: 20px;">
+        <div class="container">
+            <div class="sec-center" style="margin-bottom:40px">
+                <span class="sec-label" data-i18n="pain_label">DAS PROBLEM</span>
+                <h2 class="sec-title" data-i18n="pain_title">Schluss mit der Abzocke an der Zapfsäule!</h2>
+                <p class="sec-sub" data-i18n="pain_sub">Kommt dir das bekannt vor? Du verlierst jeden Monat bares Geld, ohne es zu merken.</p>
+            </div>
+            <div class="savings-grid">
+                <div class="save-card" style="border-color: rgba(239, 68, 68, 0.4); background: linear-gradient(180deg, rgba(239,68,68,0.05) 0%, rgba(18,18,26,0.65) 100%);">
+                    <span class="save-icon">😡</span>
+                    <h3 data-i18n="pain1_title" style="color: var(--red);">Zu früh getankt</h3>
+                    <p data-i18n="pain1_desc">Du tankst voll und fährst 5 Minuten später an einer Tankstelle vorbei, die deutlich billiger ist. Ein Gefühl, das den ganzen Tag verdirbt.</p>
+                </div>
+                <div class="save-card" style="border-color: rgba(239, 68, 68, 0.4); background: linear-gradient(180deg, rgba(239,68,68,0.05) 0%, rgba(18,18,26,0.65) 100%);">
+                    <span class="save-icon">💸</span>
+                    <h3 data-i18n="pain2_title" style="color: var(--red);">Teure Umwege</h3>
+                    <p data-i18n="pain2_desc">Du fährst kilometerweit zu einer "billigen" Station und verbrennst dabei mehr Sprit und Zeit, als du am Ende durch den Preis sparst.</p>
+                </div>
+                <div class="save-card" style="border-color: rgba(239, 68, 68, 0.4); background: linear-gradient(180deg, rgba(239,68,68,0.05) 0%, rgba(18,18,26,0.65) 100%);">
+                    <span class="save-icon">📈</span>
+                    <h3 data-i18n="pain3_title" style="color: var(--red);">Preislotterie</h3>
+                    <p data-i18n="pain3_desc">Konzerne ändern ihre Preise bis zu 10 Mal am Tag, um massiven Profit aus deiner Tasche zu ziehen. Du bist dem System ausgeliefert.</p>
+                </div>
+            </div>
+            <div class="sec-center" style="margin-top: 50px;">
+                <h3 style="font-size: 24px; font-weight: 800; color: var(--green);" data-i18n="pain_solution">ZapfNavi dreht den Spieß um! Hol dir die Kontrolle (und dein Geld) zurück.</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FEATURES SHOWCASE ═══ -->
+    <section class="section section-alt" id="features">
+        <div class="container">
+            <div class="sec-center" style="margin-bottom:60px">
+                <span class="sec-label" data-i18n="feat_label">APP FEATURES</span>
+                <h2 class="sec-title" data-i18n="feat_title">So sparst du mit ZapfNavi</h2>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-img"><img src="../assets/marketing/screenshot_1_comparison_v2_clear_1772968005962.png" alt="Preise vergleichen">
+                </div>
+                <div class="showcase-body">
+                    <h3 data-i18n="feat1_title">Preise in Echtzeit vergleichen</h3>
+                    <p data-i18n="feat1_desc">Sieh auf einen Blick, welche Tankstelle am günstigsten ist. Alle Preise
+                        kommen live von der Markttransparenzstelle.</p>
+                    <ul class="feat-list">
+                        <li data-i18n="feat1_1">E5, E10 und Diesel auf einen Blick</li>
+                        <li data-i18n="feat1_2">Farbcodierte Preise (grün = günstig)</li>
+                        <li data-i18n="feat1_3">Aktualisierung alle 5 Minuten</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-img"><img src="../assets/marketing/screenshot_2_map_v2_clear_1772968021683.png" alt="Tankstelle finden">
+                </div>
+                <div class="showcase-body">
+                    <h3 data-i18n="feat2_title">Günstige Tankstellen finden</h3>
+                    <p data-i18n="feat2_desc">GPS-basierte Suche zeigt dir sofort die billigsten Tankstellen in deiner
+                        Nähe. Filter nach Kraftstoffart und Umkreis.</p>
+                    <ul class="feat-list">
+                        <li data-i18n="feat2_1">Interaktive Karte mit allen Stationen</li>
+                        <li data-i18n="feat2_2">Filter nach Marke, Preis & Entfernung</li>
+                        <li data-i18n="feat2_3">Favoriten speichern & synchronisieren</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-img"><img src="../assets/marketing/screenshot_4_route_v2_clear_1772968058365.png" alt="Navigation"></div>
+                <div class="showcase-body">
+                    <h3 data-i18n="feat3_title">Direkte Navigation</h3>
+                    <p data-i18n="feat3_desc">Ein Tipp startet die Navigation zur günstigsten Tankstelle. Routenplaner
+                        findet günstige Stationen auf deinem Weg.</p>
+                    <ul class="feat-list">
+                        <li data-i18n="feat3_1">1-Tap Navigation via Google Maps</li>
+                        <li data-i18n="feat3_2">Routenplaner mit Tankstopps</li>
+                        <li data-i18n="feat3_3">Entfernungs- und Zeitanzeige</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="showcase-item">
+                <div class="showcase-img"><img src="../assets/marketing/screenshot_3_alarm_v3_realistic_price_1772973517393.png" alt="Smart Preisalarm"></div>
+                <div class="showcase-body">
+                    <h3 data-i18n="feat4_title">Smart Preisalarm</h3>
+                    <p data-i18n="feat4_desc">Setze deinen Wunschpreis und werde sofort benachrichtigt, wenn der Preis
+                        sinkt. So tankst du immer zum besten Zeitpunkt.</p>
+                    <ul class="feat-list">
+                        <li data-i18n="feat4_1">Push-Benachrichtigung bei Wunschpreis</li>
+                        <li data-i18n="feat4_2">Konfigurierbare Ruhezeiten</li>
+                        <li data-i18n="feat4_3">Intelligent: kein Notification-Spam</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="store-badges" id="badges-mid" style="justify-content:center;margin-top:40px"></div>
+    </section>
+
+    <!-- ═══ SAVINGS ═══ -->
+    <section class="section" id="savings">
+        <div class="container">
+            <div class="sec-center">
+                <span class="sec-label" data-i18n="save_label">DEINE ERSPARNIS</span>
+                <h2 class="sec-title" data-i18n="save_title">So viel sparst du mit ZapfNavi</h2>
+                <p class="sec-sub" data-i18n="save_sub">Durchschnittliche Ersparnis unserer Nutzer bei regelmäßiger
+                    Nutzung</p>
+            </div>
+            <div class="savings-grid">
+                <div class="save-card"><span class="save-icon">⛽</span>
+                    <h3 data-i18n="save1_title">Pro Tankfüllung</h3><span class="save-val" data-i18n="save1_val">bis zu 7€</span>
+                    <p data-i18n="save1_desc">Ersparnis pro Tankvorgang</p>
+                </div>
+                <div class="save-card"><span class="save-icon">📅</span>
+                    <h3 data-i18n="save2_title">Pro Monat</h3><span class="save-val" data-i18n="save2_val">bis zu 30€</span>
+                    <p data-i18n="save2_desc">Bei 4 Tankvorgängen/Monat</p>
+                </div>
+                <div class="save-card"><span class="save-icon">📍</span>
+                    <h3 data-i18n="save3_title">Echtzeit-Preise</h3><span class="save-val" data-i18n="save3_val">14.000+</span>
+                    <p data-i18n="save3_desc">Tankstellen in Deutschland</p>
+                </div>
+                <div class="save-card"><span class="save-icon">🔔</span>
+                    <h3 data-i18n="save4_title">Preisalarm</h3><span class="save-val" data-i18n="save4_val">24/7</span>
+                    <p data-i18n="save4_desc">Automatische Preis-Überwachung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PRICING ═══ -->
+    <section class="section section-alt" id="pricing">
+        <div class="container">
+            <div class="sec-center">
+                <span class="sec-label" data-i18n="price_label">PREISE & ABO-MODELL</span>
+                <h2 class="sec-title" data-i18n="price_title">Transparent & fair</h2>
+            </div>
+            <div class="trial-banner" data-i18n="price_trial">🎉 Starte mit <b>2 Tagen komplett kostenlos</b> — alle Features, kein Risiko!</div>
+            <div class="pricing-wrap">
+                <div class="price-card">
+                    <span class="price-tag" data-i18n="plan1_tag">NACH DER TESTPHASE</span>
+                    <div class="price-amount" data-i18n="plan1_price">0€</div>
+                    <p class="price-desc" data-i18n="plan1_desc">Weiter kostenlos nutzen — mit Werbung</p>
+                    <ul class="price-features">
+                        <li data-i18n="plan1_f1">Alle Tankstellen & Preise</li>
+                        <li data-i18n="plan1_f2">GPS-Suche & Navigation</li>
+                        <li data-i18n="plan1_f3">Preisalarm & Favoriten</li>
+                        <li data-i18n="plan1_f4">Mit Werbeanzeigen</li>
+                    </ul>
+                    <button class="btn-price btn-price-outline" data-i18n="plan1_btn">Kostenlos starten</button>
+                </div>
+                <div class="price-card featured">
+                    <span class="price-tag" data-i18n="plan2_tag">PREMIUM — WERBEFREI</span>
+                    <div class="price-amount">2,99€ <small data-i18n="plan2_period">/ Monat</small></div>
+                    <p class="price-desc" data-i18n="plan2_desc">Komplett ohne Werbung — jederzeit kündbar</p>
+                    <ul class="price-features">
+                        <li data-i18n="plan2_f1">Alle Features inklusive</li>
+                        <li data-i18n="plan2_f2">Keine Werbung — null Ablenkung</li>
+                        <li data-i18n="plan2_f3">Prioritäts-Support</li>
+                        <li data-i18n="plan2_f4">Jederzeit kündbar</li>
+                    </ul>
+                    <button class="btn-price btn-price-primary" data-i18n="plan2_btn">Premium starten</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SOCIAL PROOF ═══ -->
+    <section class="section" id="reviews">
+        <div class="container">
+            <div class="sec-center">
+                <span class="sec-label" data-i18n="rev_label">BEWERTUNGEN</span>
+                <h2 class="sec-title" data-i18n="rev_title">Das sagen unsere Nutzer</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-i18n="rev1_text">"Endlich eine App die funktioniert! Habe gestern über 8€ bei einer Tankfüllung gespart. Der Preisalarm ist genial."</p>
+                    <div class="review-author">Markus T.</div>
+                    <div class="review-loc" data-i18n="rev1_loc">München</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-i18n="rev2_text">"Benutze die App täglich. Die Karte ist super übersichtlich und die Echtzeit-Preise stimmen immer. Kann ich nur empfehlen."</p>
+                    <div class="review-author">Lisa K.</div>
+                    <div class="review-loc" data-i18n="rev2_loc">Berlin</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-text" data-i18n="rev3_text">"Als Vielfahrer spare ich über 30€ im Monat. Die Routenplaner-Funktion zeigt mir günstige Tankstellen auf meiner Strecke."</p>
+                    <div class="review-author">Thomas R.</div>
+                    <div class="review-loc" data-i18n="rev3_loc">Hamburg</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="section section-alt" id="faq">
+        <div class="container">
+            <div class="sec-center"><span class="sec-label">FAQ</span>
+                <h2 class="sec-title" data-i18n="faq_title">Häufige Fragen</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q" data-i18n="faq1_q">Ist die App wirklich kostenlos?</div>
+                    <div class="faq-a" data-i18n="faq1_a">Ja! Du kannst ZapfNavi 2 Tage komplett kostenlos testen. Daarna kannst du weiter kostenlos mit Werbung nutzen, oder für 2,99€/Monat die werbefreie Version genießen.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" data-i18n="faq2_q">Woher stammen die Preise?</div>
+                    <div class="faq-a" data-i18n="faq2_a">Alle Preise stammen von der offiziellen Markttransparenzstelle für Kraftstoffe (MTS-K) via Tankerkönig-API. Die Daten werden alle 5 Minuten aktualisiert.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" data-i18n="faq3_q">Welche Tankstellen werden angezeigt?</div>
+                    <div class="faq-a" data-i18n="faq3_a">Über 14.000 Tankstellen in ganz Deutschland — alle Marken: Aral, Shell, JET, Total, ESSO, Star, und viele mehr.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q" data-i18n="faq4_q">Kann ich das Abo jederzeit kündigen?</div>
+                    <div class="faq-a" data-i18n="faq4_a">Ja, absolut. Das Premium-Abo ist jederzeit kündbar. Keine versteckten Kosten, keine Mindestlaufzeit.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA DOWNLOAD ═══ -->
+    <section class="section" id="download">
+        <div class="cta-box">
+            <h2 data-i18n="cta_title">Jetzt App herunterladen und sofort sparen</h2>
+            <p data-i18n="cta_sub">Schließe dich über 10.000 Nutzern an, die bereits jeden Monat Geld sparen.</p>
+            <div class="store-badges" id="badges-cta" style="justify-content:center"></div>
+            <div class="hero-social" style="justify-content:center;margin-top:24px">
+                <div class="hero-stars">★★★★★</div>
+                <span data-i18n="cta_rating">4,9 Sterne · 10.000+ Downloads</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="nav-logo" style="justify-content:flex-start;"><img src="../assets/icon/launcher_icon.png" alt="ZapfNavi Icon" style="width:36px;height:36px;border-radius:10px;box-shadow: 0 4px 12px rgba(255,184,0,0.3);"> Zapf<b>Navi</b></div>
+                <p data-i18n="footer_desc">Die ultimative Waffe gegen hohe Spritpreise in Deutschland.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_legal">Rechtliches</h4>
+                <a href="datenschutzerklaerung.html" data-i18n="footer_privacy">Datenschutzerklärung</a>
+                <a href="impressum.html" data-i18n="footer_imprint">Impressum</a>
+            </div>
+            <div class="footer-col">
+                <h4>Download</h4>
+                <a href="#download">Google Play</a>
+                <a href="#download">Apple App Store</a>
+                <a href="#download">Galaxy Store</a>
+                <a href="#download">AppGallery</a>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="footer_lang">Sprache</h4>
+                <a href="#" onclick="setLang('de')">🇩🇪 Deutsch</a>
+                <a href="#" onclick="setLang('en')">🇬🇧 English</a>
+                <a href="#" onclick="setLang('it')">🇮🇹 Italiano</a>
+                <a href="#" onclick="setLang('pl')">🇵🇱 Polski</a>
+                <a href="#" onclick="setLang('tr')">🇹🇷 Türkçe</a>
+                <a href="#" onclick="setLang('ar')">🇸🇦 العربية</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 ZapfNavi · Moussahim Ammari · Bayreuth</span>
+            <span data-i18n="footer_data">Datenquelle: Tankerkönig / MTS-K (CC BY 4.0)</span>
+        </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script>
+        // Store badges template
+        const badgeSVGs = {
+            play: \`<svg viewBox="0 0 512 512" style="height:28px;width:28px" class="b-icon"><path fill="#4caf50" d="M325.3 234.3L104.6 13l280.8 161.2z"/><path fill="#f44336" d="M47 0C34 0 23 10 23 24v464c0 14 11 24 24 24l257-256z"/><path fill="#ffc107" d="M325.3 277.7L104.6 499l280.8-161.2z"/><path fill="#2196f3" d="M497 256L385.3 191.2 325.3 256l60 64.8z"/></svg>\`,
+            apple: \`<svg viewBox="0 0 384 512" fill="#fff" style="height:28px;width:28px" class="b-icon"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>\`,
+            galaxy: \`<svg viewBox="0 0 24 24" fill="#fff" style="height:28px;width:28px" class="b-icon"><circle cx="12" cy="12" r="10" fill="none" stroke="#fff" stroke-width="1.5"/><path d="M12 6v6l4 2" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/></svg>\`,
+            huawei: \`<svg viewBox="0 0 24 24" fill="#E60012" style="height:28px;width:28px;background:#fff;border-radius:6px;padding:2px" class="b-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2a7.2 7.2 0 01-6-3.22c.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08a7.2 7.2 0 01-6 3.22z"/></svg>\`
+        };
+
+        function renderBadges(containerId) {
+            const c = document.getElementById(containerId);
+            if (!c) return;
+            c.innerHTML = [
+                { s: badgeSVGs.play, name: 'Google Play' },
+                { s: badgeSVGs.apple, name: 'App Store' },
+                { s: badgeSVGs.galaxy, name: 'Galaxy Store' },
+                { s: badgeSVGs.huawei, name: 'AppGallery' }
+            ].map(b => \`<a href="#download" class="badge-btn">\${b.s}<div><span class="b-name">\${b.name}</span></div></a>\`).join('');
+        }
+
+        ['badges-hero', 'badges-mid', 'badges-cta'].forEach(renderBadges);
+
+        // FAQ toggle
+        document.querySelectorAll('.faq-q').forEach(q => {
+            q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+        });
+
+        // Smooth button scrolls
+        document.querySelectorAll('.btn-price').forEach(b => {
+            b.addEventListener('click', () => document.getElementById('download').scrollIntoView({ behavior: 'smooth' }));
+        });
+    </script>
+</body>
+</html>`;
+
+fs.writeFileSync('index.html', html);
+console.log('index.html restored');

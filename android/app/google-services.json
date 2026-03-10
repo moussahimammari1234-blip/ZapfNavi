@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "914920624612",
+    "project_id": "zapfnavi",
+    "storage_bucket": "zapfnavi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914920624612:android:6c49bb437a534ac10137f1",
+        "android_client_info": {
+          "package_name": "com.benzinsparren.de.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi7F9w_yY_oIQEZnVHUrBbuWPIECXmDO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
