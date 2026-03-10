@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Datenschutzerklärung – ZapfNavi</title>
-  <meta name="description" content="Datenschutzerklärung der App ZapfNavi">
+  <meta name="description" content="DSGVO-konforme Datenschutzinformationen der App ZapfNavi">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
     rel="stylesheet">
   <style>
     :root {
@@ -24,68 +24,97 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
     body {
       background-color: var(--bg-deep);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     nav {
-      padding: 24px 6%;
+      padding: 16px 5%;
       border-bottom: 1px solid var(--border-subtle);
       background: rgba(8, 8, 12, 0.82);
       backdrop-filter: blur(12px);
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 800;
       color: #fff;
       text-decoration: none;
-      font-family: 'Outfit', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .logo span {
       color: var(--primary);
-      font-family: 'Outfit', sans-serif;
     }
 
     .container {
       max-width: 800px;
-      margin: 60px auto 100px;
+      margin: 40px auto 100px;
       padding: 0 20px;
     }
 
+    .back {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 8px 18px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .back:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.2);
+    }
+
     h1 {
-      font-size: 42px;
+      font-size: clamp(26px, 6vw, 42px);
       font-weight: 800;
       margin-bottom: 30px;
-      font-family: 'Outfit', sans-serif;
+      word-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
+      line-height: 1.25;
+      letter-spacing: -1px;
     }
 
     h2 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       margin-top: 40px;
       margin-bottom: 15px;
       color: #fff;
-      font-family: 'Outfit', sans-serif;
     }
 
-    h3 {
-      font-family: 'Outfit', sans-serif;
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(255, 94, 0, 0.1);
       color: var(--primary);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
-    p,
-    li {
+    p, li {
       color: var(--text-muted);
       margin-bottom: 15px;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     ul {
@@ -107,20 +136,18 @@
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
-      padding: 30px;
+      padding: 24px;
       margin-bottom: 40px;
     }
 
-    .back {
-      display: inline-block;
+    .info-card h3 {
+      font-size: 16px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .section-card {
       margin-bottom: 30px;
-      padding: 10px 20px;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      font-family: 'Outfit', sans-serif;
     }
   </style>
 </head>
@@ -132,70 +159,107 @@
 
   <div class="container">
     <a href="index.html" class="back">← Zurück zur Startseite</a>
+    
     <h1>Datenschutzerklärung</h1>
 
     <div class="info-card">
-      <h2>1. Einleitung und Überblick</h2>
-      <p>Wir freuen uns, dass Sie die App <strong>ZapfNavi</strong> nutzen. Der Schutz Ihrer persönlichen Daten ist uns
-        ein wichtiges Anliegen. Diese Datenschutzerklärung erklärt, welche Daten wir erheben, wie wir sie verwenden und
-        welche Rechte Sie bezüglich Ihrer Daten haben, gemäß der Datenschutz-Grundverordnung (DSGVO).</p>
+      <h3>Verantwortlicher (Art. 13 DSGVO)</h3>
+      <p style="margin-bottom:0;">
+        Moussahim Ammari<br>
+        Emil-Warburg-Weg 19<br>
+        95447 Bayreuth<br>
+        Deutschland<br><br>
+        E-Mail: moussahimammari1234@gmail.com
+      </p>
     </div>
 
-    <h2>2. Verantwortliche Stelle</h2>
-    <p>Verantwortlich für die Datenverarbeitung ist:</p>
-    <p>
-      Moussahim Ammari<br>
-      Emil-Warburg-Weg 19<br>
-      95447 Bayreuth<br>
-      Deutschland<br>
-      E-Mail: <a href="mailto:moussahimammari1234@gmail.com">moussahimammari1234@gmail.com</a>
-    </p>
+    <div class="section-card">
+        <span class="badge">1. Überblick der Datenverarbeitung</span>
+        <p>Diese Datenschutzerklärung informiert Sie über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten in der App „ZapfNavi: Spritpreise“ (Android). Die Verarbeitung Ihrer Daten erfolgt ausschließlich im Rahmen der geltenden Datenschutzgesetze, insbesondere der EU-DSGVO und des BDSG.</p>
+    </div>
 
-    <h2>3. Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck der Verwendung</h2>
+    <div class="section-card">
+        <span class="badge">2. Standortdaten (GPS) – Art. 6 Abs. 1 lit. a DSGVO</span>
+        <p>Die App nutzt Ihren GPS-Standort ausschließlich zur Anzeige nahegelegener Tankstellen. Standortdaten werden:</p>
+        <ul>
+            <li>Nicht dauerhaft gespeichert</li>
+            <li>Nicht an unsere Server übertragen</li>
+            <li>Nicht an Dritte weitergegeben</li>
+            <li>Nur zur Abfrage der Tankerkönig-API genutzt (Radius-Suche)</li>
+        </ul>
+        <p>Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).<br>Sie können den Standortzugriff jederzeit in den Geräteeinstellungen widerrufen.</p>
+    </div>
 
-    <h3>a) Beim Öffnen und Nutzen der App</h3>
-    <p>Wenn Sie unsere App nutzen, werden systembedingt durch Ihr Gerät automatisch Informationen an den Server der von
-      uns genutzten Schnittstellen gesendet. Diese Informationen werden temporär in einem sogenannten Logfile
-      gespeichert. Dazu gehören z. B. IP-Adresse, Datum und Uhrzeit der Anfrage, und das Betriebssystem.</p>
+    <div class="section-card">
+        <span class="badge">3. Supabase – Backend & Authentifizierung</span>
+        <p>Für optionale Benutzerkonten nutzen wir Supabase (Supabase Inc., 970 Tresser Blvd, Stamford, CT, USA). Bei freiwilliger Registrierung werden gespeichert:</p>
+        <ul>
+            <li>E-Mail-Adresse (verschlüsselt)</li>
+            <li>Passwort (gehasht, nie im Klartext)</li>
+            <li>Favorisierte Tankstellen-IDs</li>
+        </ul>
+        <p>Supabase ist nach EU-US Data Privacy Framework zertifiziert. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).<br><a href="https://supabase.com/privacy" target="_blank">🔗 Datenschutz Supabase: supabase.com/privacy</a></p>
+    </div>
 
-    <h3>b) Standortdaten</h3>
-    <p>Damit ZapfNavi Tankstellen in Ihrer Nähe anzeigen und Routen berechnen kann, fragt die App Ihre aktuellen
-      Standortdaten (GPS) ab. Diese Standortdaten verarbeiten wir ausschließlich lokal auf Ihrem Gerät oder senden sie
-      an die Preis-Schnittstelle (Tankerkönig), um entsprechende Suchergebnisse für Ihre Umgebung zu erhalten. Die Daten
-      werden nicht gespeichert und nicht zur Erstellung von Bewegungsprofilen genutzt.</p>
+    <div class="section-card">
+        <span class="badge">4. Tankerkönig API – Kraftstoffpreise</span>
+        <p>Kraftstoffpreisdaten werden über die offizielle Tankerkönig-API des Bundeskartellamts (MTS-K) abgerufen. Dabei werden:</p>
+        <ul>
+            <li>Nur der ungefähre Suchstandort (Übermittlung von Koordinaten)</li>
+            <li>Keine personenbezogenen Daten an Tankerkönig gesendet</li>
+            <li>Die Daten unter Creative-Commons-Lizenz CC BY 4.0 genutzt</li>
+        </ul>
+        <p>Tankerkönig ist eine Open-Data-Initiative des Bundes.<br><a href="https://www.tankerkoenig.de" target="_blank">🔗 tankerkoenig.de</a></p>
+    </div>
 
-    <h3>c) Firebase und Analysedienste</h3>
-    <p>Wir verwenden teilweise Dienste von Google (Firebase) für Auswertungen von Abstürzen (Crashlytics) und
-      Basis-Analysen, um die Stabilität und Nutzerfreundlichkeit der App zu verbessern. IP-Adressen werden hierbei in
-      der Regel anonymisiert.</p>
+    <div class="section-card">
+        <span class="badge">5. Lokale Datenspeicherung</span>
+        <p>Einige Einstellungen werden ausschließlich lokal auf Ihrem Gerät gespeichert (SharedPreferences / Android-Datenspeicher):</p>
+        <ul>
+            <li>Kraftstoffpräferenz (E5/E10/Diesel)</li>
+            <li>Suchradius</li>
+            <li>Preisalarm-Einstellungen</li>
+            <li>Favoriten (lokal)</li>
+            <li>DSGVO-Einwilligung</li>
+        </ul>
+        <p>Diese Daten verlassen das Gerät nicht.</p>
+    </div>
 
-    <h2>4. Weitergabe von Daten</h2>
-    <p>Eine Übermittlung Ihrer persönlichen Daten an Dritte zu anderen als den im Folgenden aufgeführten Zwecken findet
-      nicht statt. Wir geben Ihre persönlichen Daten nur an Dritte weiter, wenn:</p>
-    <ul>
-      <li>Sie Ihre ausdrückliche Einwilligung dazu erteilt haben,</li>
-      <li>die Weitergabe zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich ist,</li>
-      <li>für die Weitergabe eine gesetzliche Verpflichtung besteht.</li>
-    </ul>
+    <div class="section-card">
+        <span class="badge">6. Push-Benachrichtigungen</span>
+        <p>Mit Ihrer Einwilligung sendet die App lokale Benachrichtigungen (Preisalarme). Diese werden ausschließlich lokal auf dem Gerät durch flutter_local_notifications erzeugt – keine externen Push-Dienste werden verwendet.<br>Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</p>
+    </div>
 
-    <h2>5. Betroffenenrechte</h2>
-    <p>Sie haben das Recht:</p>
-    <ul>
-      <li>Auskunft über Ihre von uns verarbeiteten personenbezogenen Daten zu verlangen.</li>
-      <li>Unverzüglich die Berichtigung unrichtiger oder die Vervollständigung Ihrer bei uns gespeicherten
-        personenbezogenen Daten zu verlangen.</li>
-      <li>Die Löschung Ihrer bei uns gespeicherten personenbezogenen Daten zu verlangen.</li>
-      <li>Sich bei einer Aufsichtsbehörde zu beschweren.</li>
-    </ul>
+    <div class="section-card">
+        <span class="badge">7. Ihre Rechte (Art. 15–21 DSGVO)</span>
+        <p>Sie haben folgende Datenschutzrechte:</p>
+        <ul>
+            <li>Auskunftsrecht (Art. 15 DSGVO)</li>
+            <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+            <li>Recht auf Löschung / „Recht auf Vergessenwerden“ (Art. 17)</li>
+            <li>Recht auf Einschränkung der Verarbeitung (Art. 18)</li>
+            <li>Recht auf Datenübertragbarkeit (Art. 20)</li>
+            <li>Widerspruchsrecht (Art. 21)</li>
+        </ul>
+        <p>Anfragen richten Sie an:<br>moussahimammari1234@gmail.com</p>
+        <p>Zuständige Datenschutz-Aufsichtsbehörde:<br>Bayerisches Landesamt für Datenschutzaufsicht (BayLDA)<br>Promenade 18, 91522 Ansbach<br><a href="https://www.lda.bayern.de" target="_blank">🔗 www.lda.bayern.de</a></p>
+    </div>
 
-    <h2>6. Datensicherheit</h2>
-    <p>Wir verwenden innerhalb der App das verbreitete SSL-Verfahren in Verbindung mit der jeweils höchsten
-      Verschlüsselungsstufe, die von Ihrem Endgerät unterstützt wird.</p>
+    <div class="section-card">
+        <span class="badge">8. Datensicherheit</span>
+        <p>Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein:</p>
+        <ul>
+            <li>Ausschließlich verschlüsselte Übertragung (HTTPS/TLS)</li>
+            <li>Gehashte Passwörter (bcrypt via Supabase)</li>
+            <li>Keine Speicherung sensibler Daten im Klartext</li>
+            <li>Regelmäßige Sicherheitsüberprüfungen</li>
+        </ul>
+    </div>
 
-    <h2>7. Aktualität und Änderung dieser Datenschutzerklärung</h2>
-    <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand März 2026. Durch die Weiterentwicklung unserer
-      App oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.
-    </p>
+    <div class="section-card">
+        <span class="badge">9. Änderungen dieser Datenschutzerklärung</span>
+        <p>Diese Datenschutzerklärung kann bei Bedarf aktualisiert werden, beispielsweise bei neuen Funktionen oder geänderten gesetzlichen Anforderungen. Die aktuelle Version ist stets in der App unter Einstellungen → Rechtliches verfügbar.<br><br>Letzte Aktualisierung: Februar 2026</p>
+    </div>
   </div>
 </body>
 

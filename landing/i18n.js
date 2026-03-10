@@ -107,7 +107,8 @@ const translations = {
         "footer_privacy": "Datenschutzerklärung",
         "footer_imprint": "Impressum",
         "footer_lang": "Sprache",
-        "footer_data": "Daten: Tankerkönig / MTS-K"
+        "footer_data": "Daten: Tankerkönig / MTS-K",
+        "footer_contact": "Kontakt"
     },
     "ar": {
         "nav_features": "الحل",
@@ -216,7 +217,8 @@ const translations = {
         "footer_privacy": "سياسة الخصوصية",
         "footer_imprint": "بصمة",
         "footer_lang": "اللغة",
-        "footer_data": "البيانات: Tankerkönig / MTS-K"
+        "footer_data": "البيانات: Tankerkönig / MTS-K",
+        "footer_contact": "اتصال"
     },
     "en": {
         "nav_features": "Lösung",
@@ -325,7 +327,8 @@ const translations = {
         "footer_privacy": "Datenschutzerklärung",
         "footer_imprint": "Impressum",
         "footer_lang": "Sprache",
-        "footer_data": "Daten: Tankerkönig / MTS-K"
+        "footer_data": "Daten: Tankerkönig / MTS-K",
+        "footer_contact": "Contact"
     },
     "it": {
         "nav_features": "Lösung",
@@ -434,7 +437,8 @@ const translations = {
         "footer_privacy": "Datenschutzerklärung",
         "footer_imprint": "Impressum",
         "footer_lang": "Sprache",
-        "footer_data": "Daten: Tankerkönig / MTS-K"
+        "footer_data": "Daten: Tankerkönig / MTS-K",
+        "footer_contact": "Contatto"
     },
     "pl": {
         "nav_features": "Lösung",
@@ -543,7 +547,8 @@ const translations = {
         "footer_privacy": "Datenschutzerklärung",
         "footer_imprint": "Impressum",
         "footer_lang": "Sprache",
-        "footer_data": "Daten: Tankerkönig / MTS-K"
+        "footer_data": "Daten: Tankerkönig / MTS-K",
+        "footer_contact": "Kontakt"
     },
     "tr": {
         "nav_features": "Lösung",
@@ -652,7 +657,8 @@ const translations = {
         "footer_privacy": "Datenschutzerklärung",
         "footer_imprint": "Impressum",
         "footer_lang": "Sprache",
-        "footer_data": "Daten: Tankerkönig / MTS-K"
+        "footer_data": "Daten: Tankerkönig / MTS-K",
+        "footer_contact": "İletişim"
     }
 };
 

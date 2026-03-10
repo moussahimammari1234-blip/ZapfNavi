@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impressum – ZapfNavi</title>
-  <meta name="description" content="Impressum der App ZapfNavi">
+  <title>Kontakt – ZapfNavi</title>
+  <meta name="description" content="Kontaktiere ZapfNavi Support">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -92,21 +92,10 @@
       letter-spacing: -1px;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      background: rgba(255, 94, 0, 0.1);
-      color: var(--primary);
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    p, li {
+    p {
       color: var(--text-muted);
       margin-bottom: 15px;
-      font-size: 15px;
+      font-size: 16px;
     }
 
     a {
@@ -122,12 +111,27 @@
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
-      padding: 24px;
+      padding: 40px 30px;
+      text-align: center;
       margin-bottom: 40px;
     }
-    
-    .section-card {
-      margin-bottom: 30px;
+
+    .email-link {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 14px 28px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 16px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .email-link:hover {
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 94, 0, 0.4);
     }
   </style>
 </head>
@@ -140,48 +144,18 @@
   <div class="container">
     <a href="index.html" class="back">← Zurück zur Startseite</a>
     
-    <h1>Impressum</h1>
+    <h1>Kontakt</h1>
 
     <div class="info-card">
-      <span class="badge">§ 5 TMG – Angaben</span>
-      <p style="margin-bottom:0;">
-        Gemäß § 5 des Telemediengesetzes (TMG) ist als Diensteanbieter folgende Person verantwortlich:<br><br>
-        Moussahim Ammari<br>
-        Emil-Warburg-Weg 19<br>
-        95447 Bayreuth<br>
-        Deutschland
-      </p>
-    </div>
-
-    <div class="section-card">
-        <span class="badge">Verantwortlich für den Inhalt (§ 55 Abs. 2 RStV)</span>
-        <p>
-            Moussahim Ammari<br>
-            Emil-Warburg-Weg 19<br>
-            95447 Bayreuth<br>
-            Deutschland
+        <h2 style="font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 16px;">Lass uns sprechen!</h2>
+        <p style="font-size: 16px; line-height: 1.7;">
+            Du hast Feedback, Verbesserungsvorschläge oder benötigst Hilfe? 
+            Wir freuen uns immer über Nachrichten unserer Community, denn durch dein Feedback machen wir ZapfNavi noch besser für alle.
         </p>
+        
+        <a href="mailto:moussahimammari1234@gmail.com" class="email-link">📧 E-Mail senden</a>
     </div>
 
-    <div class="section-card">
-        <span class="badge">Haftung für Inhalte</span>
-        <p>Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte verantwortlich. Nach §§ 8–10 TMG bin ich nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
-    </div>
-
-    <div class="section-card">
-        <span class="badge">Haftung für Links</span>
-        <p>Die App enthält Links zu externen Webseiten. Für die Inhalte verlinkter Seiten ist der jeweilige Anbieter verantwortlich. Eine permanente Kontrolle der Inhalte ist ohne konkreten Anhaltspunkt nicht zumutbar.</p>
-    </div>
-
-    <div class="section-card">
-        <span class="badge">Urheberrecht</span>
-        <p>Die in der App erstellten Inhalte unterliegen dem deutschen Urheberrecht. Vervielfältigung, Bearbeitung und Verbreitung außerhalb der Grenzen des Urheberrechts bedürfen der schriftlichen Zustimmung des Autors.</p>
-    </div>
-
-    <div class="section-card">
-        <span class="badge">Plattform der EU-Kommission (OS)</span>
-        <p>Gemäß EU-Verordnung Nr. 524/2013 stellt die EU-Kommission eine Online-Streitbeilegungs-Plattform (OS) bereit:<br><a href="https://ec.europa.eu/consumers/odr" target="_blank">🔗 ec.europa.eu/consumers/odr</a></p>
-    </div>
   </div>
 </body>
 
