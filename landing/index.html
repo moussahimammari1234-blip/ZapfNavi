@@ -81,22 +81,18 @@
     </div>
 
     <!-- ═══ DAS PROBLEM ═══ -->
-    <section class="section" id="painpoints" style="background:linear-gradient(180deg, var(--bg) 0%, rgba(255,40,0,0.05) 100%);">
+    <section class="section" id="painpoints">
         <div class="container">
-            <div class="burn-card">
-                <div class="showcase-item showcase-reverse" style="margin-bottom:0;">
-                    <div class="showcase-img">
-                        <div class="fire-glow-img">
-                            <img src="assets/marketing/screenshot_3_alarm_v3_realistic_price_1772973517393.png" alt="Das Problem" style="max-width:280px; border-radius:32px; box-shadow:0 30px 60px rgba(255,40,0,0.4); position:relative; z-index:2;">
-                        </div>
-                    </div>
-                    <div class="showcase-body text-left-desktop">
-                        <span class="sec-label" style="color:#ff3c00; display:flex; align-items:center; gap:8px;"><span style="font-size:24px;">🔥</span> ALARM</span>
-                        <h2 class="sec-title" data-i18n="pain_t" style="margin-bottom:24px; color:#ff4d4d; font-size:clamp(32px, 5vw, 48px); line-height:1.1;">Hör auf, dein Geld zu verbrennen!</h2>
-                        <p class="sec-sub text-left-desktop" data-i18n="pain_p1" style="margin-bottom:20px; font-size:19px; color:#fff;">Kommt dir das bekannt vor? Du fährst zur nächsten Tankstelle und tankst einfach, ohne die Preise zu vergleichen. Viele Autofahrer in Deutschland <b>werfen dadurch jeden Monat unnötig Geld aus dem Fenster</b>.</p>
-                        <p class="sec-sub text-left-desktop" data-i18n="pain_p2" style="margin-bottom:30px; border-left:4px solid #ff3c00; padding-left:14px; background:rgba(255,60,0,0.1); padding:16px; border-radius:12px;">Mit ZapfNavi findest du in Sekunden die günstigste Tankstelle in deiner Nähe und sicherst dein hart verdientes Geld vor überteuerten Preisen.</p>
-                        <a href="#download" data-i18n="pain_btn" class="btn-price btn-huge pulse-infinite" style="display:inline-block;">Jetzt stoppen & herunterladen</a>
-                    </div>
+            <div class="showcase-item showcase-reverse">
+                <div class="showcase-img">
+                    <img src="assets/marketing/screenshot_3_alarm_v3_realistic_price_1772973517393.png" alt="Das Problem" style="max-width:280px; border-radius:32px; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
+                </div>
+                <div class="showcase-body text-left-desktop">
+                    <span class="sec-label">DAS PROBLEM</span>
+                    <h2 class="sec-title" data-i18n="pain_title" style="margin-bottom:24px;">Schluss mit der Abzocke an der Zapfsäule!</h2>
+                    <p class="sec-sub text-left-desktop" data-i18n="pain_sub" style="margin-bottom:20px;">Kommt dir das bekannt vor? Du fährst zur nächsten Tankstelle und tankst einfach, ohne die Preise zu vergleichen. Viele Autofahrer in Deutschland zahlen dadurch jeden Monat unnötig zu viel für Benzin oder Diesel.</p>
+                    <p class="sec-sub text-left-desktop" style="margin-bottom:30px;">Mit ZapfNavi findest du in Sekunden die günstigste Tankstelle in deiner Nähe und kannst bei jeder Tankfüllung bares Geld sparen.</p>
+                    <a href="#download" class="btn-price btn-price-primary pulse-infinite" style="display:inline-block; padding:16px 32px; font-size:18px;">Jetzt App herunterladen</a>
                 </div>
             </div>
         </div>
@@ -245,14 +241,29 @@
     </section>
 
     <!-- ═══ CTA DOWNLOAD ═══ -->
-    <section class="section" id="download">
-        <div class="cta-box">
-            <h2 data-i18n="cta_title">Jetzt App herunterladen und sofort sparen</h2>
-            <p data-i18n="cta_sub">Schließe dich über 10.000 Nutzern an, die bereits jeden Monat Geld sparen.</p>
-            <div class="store-badges" id="badges-cta" style="justify-content:center"></div>
-            <div class="hero-social" style="justify-content:center;margin-top:24px">
-                <div class="hero-stars">★★★★★</div>
-                <span data-i18n="cta_rating">4,9 Sterne · 10.000+ Downloads</span>
+    <section class="section" id="download" style="background:linear-gradient(180deg, var(--bg) 0%, rgba(255,40,0,0.05) 100%); padding-bottom:100px;">
+        <div class="container">
+            <div class="burn-card" style="text-align:center; padding:60px 20px;">
+                <div class="fire-glow-img" style="display:inline-block; margin-bottom:20px;">
+                    <span style="font-size:80px; filter:drop-shadow(0 0 20px rgba(255,60,0,0.8));">🔥</span>
+                </div>
+                <h2 data-i18n="cta_title" style="color:#ff4d4d; font-size:clamp(36px, 6vw, 56px); line-height:1.1; font-weight:900; margin-bottom:24px; letter-spacing:-1px;">Hör auf, dein Geld zu verbrennen!</h2>
+                <p data-i18n="cta_sub" style="color:#fff; font-size:20px; max-width:600px; margin:0 auto 40px; line-height:1.6;">Lade ZapfNavi jetzt herunter und spare sofort. Worauf wartest du?</p>
+                
+                <!-- URGENCY TIMER -->
+                <div style="background:rgba(255,60,0,0.1); padding:16px; border-radius:16px; border:1px solid #ff3c00; display:inline-block; margin-bottom:40px;">
+                    <span data-i18n="cta_urgency" style="color:#fff; font-weight:700; font-size:15px; text-transform:uppercase; letter-spacing:1px; margin-right:12px;">Angebot läuft ab in:</span>
+                    <span id="countdown-timer" style="color:#ffcc00; font-weight:900; font-size:24px; font-variant-numeric:tabular-nums;">10:00</span>
+                </div>
+
+                <div class="store-badges" id="badges-cta" style="justify-content:center; position:relative; z-index:2; margin-bottom:30px;">
+                    <!-- The JS will populate the badges inside standard structure. To make them pulse, they hold pulse-infinite via CSS. -->
+                </div>
+                
+                <div class="hero-social" style="justify-content:center; margin-top:24px; position:relative; z-index:2;">
+                    <div class="hero-stars" style="color:#ffc107; font-size:24px; filter:drop-shadow(0 0 8px rgba(255,193,7,0.5));">★★★★★</div>
+                    <span data-i18n="cta_rating" style="color:#f1f1f1; font-size:16px; margin-left:12px;">4,9/5 Sterne · Basiert auf echten Bewertungen</span>
+                </div>
             </div>
         </div>
     </section>
@@ -312,6 +323,26 @@
                 cta.classList.remove('visible');
             }
         });
+
+        // COUNTDOWN TIMER
+        let minutes = 9;
+        let seconds = 59;
+        setInterval(() => {
+            const timerEl = document.getElementById('countdown-timer');
+            if(!timerEl) return;
+            seconds--;
+            if (seconds < 0) {
+                seconds = 59;
+                minutes--;
+            }
+            if (minutes < 0) {
+                minutes = 0;
+                seconds = 0;
+            }
+            const minStr = String(minutes).padStart(2, '0');
+            const secStr = String(seconds).padStart(2, '0');
+            timerEl.innerText = `${minStr}:${secStr}`;
+        }, 1000);
 
         // Store badges template
         const badgeSVGs = {

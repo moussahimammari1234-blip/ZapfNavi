@@ -1,6 +1,7 @@
 // ═══ ZapfNavi i18n — 6 Languages ═══
 const translations = {
     "de": {
+        "cta_urgency": "Angebot läuft ab in:",
         "pain_t": "Hör auf, dein Geld zu verbrennen!",
         "pain_p1": "Kommt dir das bekannt vor? Du fährst zur nächsten Tankstelle und tankst einfach, ohne die Preise zu vergleichen. Viele Autofahrer in Deutschland <b>werfen dadurch jeden Monat unnötig Geld aus dem Fenster</b>.",
         "pain_p2": "Mit ZapfNavi findest du in Sekunden die günstigste Tankstelle in deiner Nähe und sicherst dein hart verdientes Geld vor überteuerten Preisen.",
@@ -166,6 +167,7 @@ const translations = {
         "footer_contact": "Kontakt"
     },
     "ar": {
+        "cta_urgency": "ينتهي العرض خلال:",
         "pain_t": "توقف عن حرق أموالك!",
         "pain_p1": "هل يبدو هذا مألوفًا؟ أنت تقود إلى أقرب محطة وتعبئ خزانك ببساطة دون مقارنة الأسعار. <b>الكثير من السائقين يرمون أموالهم من النافذة كل شهر هكذا</b>.",
         "pain_p2": "مع ZapfNavi ستجد أرخص محطة بجوارك في ثوانٍ، وتحمي أموالك من جشع المحطات الغالية.",
@@ -331,6 +333,7 @@ const translations = {
         "footer_contact": "اتصال"
     },
     "en": {
+        "cta_urgency": "Offer expires in:",
         "pain_t": "Stop burning your money!",
         "pain_p1": "Does this sound familiar? You drive to the nearest gas station and just fill up without comparing prices. Many drivers <b>unnecessarily throw money out the window every month</b> because of this.",
         "pain_p2": "With ZapfNavi, you can find the cheapest gas station near you in seconds and protect your hard-earned money from overpriced rates.",
@@ -496,6 +499,7 @@ const translations = {
         "footer_contact": "Contact"
     },
     "it": {
+        "cta_urgency": "L'offerta scade tra:",
         "pain_t": "Smetti di bruciare i tuoi soldi!",
         "pain_p1": "Ti suona familiare? Vai al distributore più vicino e fai rifornimento senza confrontare i prezzi. Molti automobilisti <b>buttano letteralmente i soldi dalla finestra ogni mese</b> a causa di questo.",
         "pain_p2": "Con ZapfNavi trovi il distributore più economico in pochi secondi, proteggendo i tuoi sudati risparmi dai prezzi gonfiati.",
@@ -661,6 +665,7 @@ const translations = {
         "footer_contact": "Contatto"
     },
     "pl": {
+        "cta_urgency": "Oferta wygasa za:",
         "pain_t": "Przestań palić swoje pieniądze!",
         "pain_p1": "Brzmi znajomo? Podjeżdżasz na najbliższą stację i po prostu tankujesz bez porównywania cen. Wielu kierowców <b>niepotrzebnie wyrzuca pieniądze w błoto każdego miesiąca</b>.",
         "pain_p2": "Z ZapfNavi w kilka sekund znajdziesz najtańszą stację w okolicy i uchronisz swoje ciężko zarobione pieniądze przed zawyżonymi stawkami.",
@@ -826,6 +831,7 @@ const translations = {
         "footer_contact": "Kontakt"
     },
     "tr": {
+        "cta_urgency": "Teklif süresi doluyor:",
         "pain_t": "Paranı yakmayı bırak!",
         "pain_p1": "Bu tanıdık geliyor mu? En yakın benzinliğe gidip fiyatları hiç karşılaştırmadan yakıt alıyorsun. Birçok sürücü <b>her ay gereksiz yere parasını sokağa atıyor</b>.",
         "pain_p2": "ZapfNavi ile saniyeler içinde çevrendeki en ucuz benzinliği bulabilir ve zor kazandığın paranı fahiş fiyatlardan koruyabilirsin.",
