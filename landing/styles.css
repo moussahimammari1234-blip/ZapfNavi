@@ -26,12 +26,12 @@ a{color:inherit;text-decoration:none}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;padding:130px 5% 60px;gap:50px}
-.hero-text{flex:1;max-width:680px}
+.hero-text{flex:1;max-width:620px}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,94,0,.1);border:1px solid var(--border-p);padding:8px 18px;border-radius:50px;color:var(--primary);font-weight:700;font-size:13px;margin-bottom:28px;animation:pulse-badge 2.5s infinite}
 @keyframes pulse-badge{0%,100%{box-shadow:0 0 0 0 rgba(255,94,0,.3)}50%{box-shadow:0 0 0 10px rgba(255,94,0,0)}}
 .hero h1{font-size:clamp(32px,5vw,60px);font-weight:800;line-height:1.15;letter-spacing:-1px;margin-bottom:22px}
 .hero h1 .hl{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero .sub{font-size:clamp(15px,1.8vw,18px);color:var(--text2);margin-bottom:36px;max-width:100%;line-height:1.7}
+.hero .sub{font-size:clamp(16px,2vw,20px);color:var(--text2);margin-bottom:36px;max-width:520px}
 .hero-visual{flex:1;display:flex;justify-content:center;position:relative}
 .hero-phone{width:100%;max-width:320px;border-radius:32px;border:3px solid rgba(255,255,255,.08);filter:drop-shadow(0 30px 60px rgba(0,0,0,.7));animation:float-hero 6s ease-in-out infinite}
 @keyframes float-hero{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
