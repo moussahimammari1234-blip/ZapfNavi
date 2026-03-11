@@ -46,25 +46,25 @@
     <!-- ═══ HERO ═══ -->
     <section class="hero" id="hero">
         <div class="hero-text">
-            <div class="hero-badge" data-i18n="hero_badge">🔥 2 Tage komplett kostenlos testen!</div>
-            <h1 data-i18n="hero_title">Mit ZapfNavi findest du in Sekunden die günstigsten <span class="hl">Benzin- und Dieselpreise</span> in deiner Nähe.</h1>
-            <p class="sub" data-i18n="hero_sub">Viele Autofahrer zahlen jeden Monat unnötig zu viel, weil sie zufällig tanken. Mit unserer App vergleichst du aktuelle Tankstellenpreise in Deutschland und kannst bei jeder Tankfüllung sparen.<br><br>Schon kleine Preisunterschiede von 5 bis 10 Cent pro Liter können sich schnell summieren. Wenn du regelmäßig tankst, kannst du mit ZapfNavi bis zu 30€ oder mehr pro Monat sparen, indem du immer die günstigste Tankstelle in deiner Umgebung findest.</p>
+            <div class="hero-badge">🔥 2 Tage komplett kostenlos testen!</div>
+            <h1 style="font-size:clamp(32px,4vw,56px); font-weight:800; line-height:1.15; letter-spacing:-1px; margin-bottom:22px;">Finde die günstigste Tankstelle in deiner Nähe – Spare bis zu <span class="hl">30€ pro Monat</span> mit ZapfNavi</h1>
+            <p class="sub">Mit ZapfNavi findest du in Sekunden die günstigsten Benzin- und Dieselpreise in deiner Nähe. Viele Autofahrer zahlen jeden Monat unnötig zu viel, weil sie zufällig tanken. Mit unserer App vergleichst du aktuelle Tankstellenpreise in Deutschland und kannst bei jeder Tankfüllung sparen.<br><br>Schon kleine Preisunterschiede von 5 bis 10 Cent pro Liter können sich schnell summieren. Wenn du regelmäßig tankst, kannst du mit ZapfNavi bis zu 30€ oder mehr pro Monat sparen, indem du immer die günstigste Tankstelle in deiner Umgebung findest.</p>
             <div class="store-badges" id="badges-hero"></div>
             <div class="hero-social">
                 <div class="hero-stars">★★★★★</div>
-                <span data-i18n="hero_users">Mehr als 10.000 Nutzer sparen bereits</span>
+                <span>Mehr als 10.000 Nutzer sparen bereits</span>
             </div>
         </div>
         <div class="hero-visual">
             <img src="assets/marketing/landing_page_hero_ultra_clear_1772967988887.png" alt="ZapfNavi App" class="hero-phone">
             <div class="float-card fc-left">
                 <span class="fc-em">💰</span>
-                <div><span class="fc-val">-7,50€</span><span class="fc-lbl" data-i18n="fc_saved">Gespart heute</span>
+                <div><span class="fc-val">-7,50€</span><span class="fc-lbl">Gespart heute</span>
                 </div>
             </div>
             <div class="float-card fc-right">
                 <span class="fc-em">📍</span>
-                <div><span class="fc-val">1,459€</span><span class="fc-lbl" data-i18n="fc_best">Bester Preis</span>
+                <div><span class="fc-val">1,459€</span><span class="fc-lbl">Bester Preis</span>
                 </div>
             </div>
         </div>
@@ -73,189 +73,136 @@
     <!-- ═══ TRUST BAR ═══ -->
     <div class="section" style="padding:20px 5%">
         <div class="trust-bar">
-            <div class="trust-item"><span>🔒</span> <b data-i18n="trust_secure">DSGVO-konform</b></div>
-            <div class="trust-item"><span>⚡</span> <b data-i18n="trust_realtime">Echtzeit-Preise</b></div>
-            <div class="trust-item"><span>🆓</span> <b data-i18n="trust_free">Kostenlos testen</b></div>
-            <div class="trust-item"><span>🇩🇪</span> <b data-i18n="trust_germany">14.000+ Tankstellen</b></div>
+            <div class="trust-item"><span>🔒</span> <b>DSGVO-konform</b></div>
+            <div class="trust-item"><span>⚡</span> <b>Echtzeit-Preise</b></div>
+            <div class="trust-item"><span>🆓</span> <b>Kostenlos testen</b></div>
+            <div class="trust-item"><span>🇩🇪</span> <b>14.000+ Tankstellen</b></div>
         </div>
     </div>
 
-    <!-- ═══ PAIN POINTS ═══ -->
-    <section class="section" id="painpoints" style="padding-bottom: 20px;">
+    <!-- ═══ DAS PROBLEM ═══ -->
+    <section class="section" id="painpoints">
         <div class="container">
-            <div class="sec-center" style="margin-bottom:40px">
-                <span class="sec-label" data-i18n="pain_label">DAS PROBLEM</span>
-                <h2 class="sec-title" data-i18n="pain_title">Schluss mit der Abzocke an der Zapfsäule!</h2>
-                <p class="sec-sub" data-i18n="pain_sub">Kommt dir das bekannt vor? Du verlierst jeden Monat bares Geld, ohne es zu merken.</p>
-            </div>
-            <div class="savings-grid">
-                <div class="save-card" style="border-color: rgba(239, 68, 68, 0.4); background: linear-gradient(180deg, rgba(239,68,68,0.05) 0%, rgba(18,18,26,0.65) 100%);">
-                    <span class="save-icon">😡</span>
-                    <h3 data-i18n="pain1_title" style="color: var(--red);">Zu früh getankt</h3>
-                    <p data-i18n="pain1_desc">Du tankst voll und fährst 5 Minuten später an einer Tankstelle vorbei, die deutlich billiger ist. Ein Gefühl, das den ganzen Tag verdirbt.</p>
+            <div class="showcase-item" style="flex-direction:row-reverse; align-items:center;">
+                <div class="showcase-img">
+                    <img src="assets/marketing/screenshot_3_alarm_v3_realistic_price_1772973517393.png" alt="Das Problem" style="max-width:280px; border-radius:32px; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
                 </div>
-                <div class="save-card" style="border-color: rgba(239, 68, 68, 0.4); background: linear-gradient(180deg, rgba(239,68,68,0.05) 0%, rgba(18,18,26,0.65) 100%);">
-                    <span class="save-icon">💸</span>
-                    <h3 data-i18n="pain2_title" style="color: var(--red);">Teure Umwege</h3>
-                    <p data-i18n="pain2_desc">Du fährst kilometerweit zu einer "billigen" Station und verbrennst dabei mehr Sprit und Zeit, als du am Ende durch den Preis sparst.</p>
+                <div class="showcase-body">
+                    <span class="sec-label">DAS PROBLEM</span>
+                    <h2 class="sec-title" style="text-align:left; margin-bottom:24px; font-size:32px; line-height:1.2;">Schluss mit der Abzocke an der Zapfsäule!</h2>
+                    <p class="sec-sub" style="text-align:left; color:var(--text2); line-height:1.7; font-size:18px; margin-bottom:20px;">Kommt dir das bekannt vor? Du fährst zur nächsten Tankstelle und tankst einfach, ohne die Preise zu vergleichen. Viele Autofahrer in Deutschland zahlen dadurch jeden Monat unnötig zu viel für Benzin oder Diesel.</p>
+                    <p class="sec-sub" style="text-align:left; color:var(--text2); line-height:1.7; font-size:18px; margin-bottom:30px;">Mit ZapfNavi findest du in Sekunden die günstigste Tankstelle in deiner Nähe und kannst bei jeder Tankfüllung bares Geld sparen.</p>
+                    <a href="#download" class="btn-price btn-price-primary" style="display:inline-block; padding:14px 28px; font-size:16px;">Jetzt App herunterladen</a>
                 </div>
-                <div class="save-card" style="border-color: rgba(239, 68, 68, 0.4); background: linear-gradient(180deg, rgba(239,68,68,0.05) 0%, rgba(18,18,26,0.65) 100%);">
-                    <span class="save-icon">📈</span>
-                    <h3 data-i18n="pain3_title" style="color: var(--red);">Preislotterie</h3>
-                    <p data-i18n="pain3_desc">Konzerne ändern ihre Preise bis zu 10 Mal am Tag, um massiven Profit aus deiner Tasche zu ziehen. Du bist dem System ausgeliefert.</p>
-                </div>
-            </div>
-            <div class="sec-center" style="margin-top: 50px;">
-                <h3 style="font-size: 24px; font-weight: 800; color: var(--green);" data-i18n="pain_solution">ZapfNavi dreht den Spieß um! Hol dir die Kontrolle (und dein Geld) zurück.</h3>
             </div>
         </div>
     </section>
 
-    <!-- ═══ FEATURES SHOWCASE ═══ -->
+    <!-- ═══ WARUM ZAPFNAVI? ═══ -->
     <section class="section section-alt" id="features">
         <div class="container">
-            <div class="sec-center" style="margin-bottom:60px">
-                <span class="sec-label" data-i18n="feat_label">APP FEATURES</span>
-                <h2 class="sec-title" data-i18n="feat_title">So sparst du mit ZapfNavi</h2>
-            </div>
-            <div class="showcase-item">
-                <div class="showcase-img"><img src="assets/marketing/screenshot_1_comparison_v2_clear_1772968005962.png" alt="Preise vergleichen">
+            <div class="showcase-item" style="align-items:center;">
+                <div class="showcase-img">
+                    <img src="assets/marketing/screenshot_1_comparison_v2_clear_1772968005962.png" alt="Warum ZapfNavi" style="max-width:280px; border-radius:32px; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
                 </div>
                 <div class="showcase-body">
-                    <h3 data-i18n="feat1_title">Preise in Echtzeit vergleichen</h3>
-                    <p data-i18n="feat1_desc">Sieh auf einen Blick, welche Tankstelle am günstigsten ist. Alle Preise
-                        kommen live von der Markttransparenzstelle.</p>
-                    <ul class="feat-list">
-                        <li data-i18n="feat1_1">E5, E10 und Diesel auf einen Blick</li>
-                        <li data-i18n="feat1_2">Farbcodierte Preise (grün = günstig)</li>
-                        <li data-i18n="feat1_3">Aktualisierung alle 5 Minuten</li>
+                    <span class="sec-label">WARUM ZAPFNAVI?</span>
+                    <h2 class="sec-title" style="text-align:left; margin-bottom:24px; font-size:32px; line-height:1.2;">Warum entscheiden sich Autofahrer für ZapfNavi?</h2>
+                    <p class="sec-sub" style="text-align:left; color:var(--text2); line-height:1.7; font-size:18px; margin-bottom:20px;">Mit ZapfNavi findest du schnell und einfach die günstigsten Tankstellen in deiner Nähe. Unsere App vergleicht aktuelle Benzin- und Dieselpreise in Deutschland, damit du immer weißt, wo du am günstigsten tanken kannst.</p>
+                    <ul class="feat-list" style="margin-bottom:24px;">
+                        <li>Finde günstige Tankstellen in deiner Nähe</li>
+                        <li>Vergleiche Benzin- und Dieselpreise in Sekunden</li>
+                        <li>Spare bei jeder Tankfüllung bares Geld</li>
+                        <li>Schnelle Navigation direkt zur Tankstelle</li>
                     </ul>
-                </div>
-            </div>
-            <div class="showcase-item">
-                <div class="showcase-img"><img src="assets/marketing/screenshot_2_map_v2_clear_1772968021683.png" alt="Tankstelle finden">
-                </div>
-                <div class="showcase-body">
-                    <h3 data-i18n="feat2_title">Günstige Tankstellen finden</h3>
-                    <p data-i18n="feat2_desc">GPS-basierte Suche zeigt dir sofort die billigsten Tankstellen in deiner
-                        Nähe. Filter nach Kraftstoffart und Umkreis.</p>
-                    <ul class="feat-list">
-                        <li data-i18n="feat2_1">Interaktive Karte mit allen Stationen</li>
-                        <li data-i18n="feat2_2">Filter nach Marke, Preis & Entfernung</li>
-                        <li data-i18n="feat2_3">Favoriten speichern & synchronisieren</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="showcase-item">
-                <div class="showcase-img"><img src="assets/marketing/screenshot_4_route_v2_clear_1772968058365.png" alt="Navigation"></div>
-                <div class="showcase-body">
-                    <h3 data-i18n="feat3_title">Direkte Navigation</h3>
-                    <p data-i18n="feat3_desc">Ein Tipp startet die Navigation zur günstigsten Tankstelle. Routenplaner
-                        findet günstige Stationen auf deinem Weg.</p>
-                    <ul class="feat-list">
-                        <li data-i18n="feat3_1">1-Tap Navigation via Google Maps</li>
-                        <li data-i18n="feat3_2">Routenplaner mit Tankstopps</li>
-                        <li data-i18n="feat3_3">Entfernungs- und Zeitanzeige</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="showcase-item">
-                <div class="showcase-img"><img src="assets/marketing/screenshot_3_alarm_v3_realistic_price_1772973517393.png" alt="Smart Preisalarm"></div>
-                <div class="showcase-body">
-                    <h3 data-i18n="feat4_title">Smart Preisalarm</h3>
-                    <p data-i18n="feat4_desc">Setze deinen Wunschpreis und werde sofort benachrichtigt, wenn der Preis
-                        sinkt. So tankst du immer zum besten Zeitpunkt.</p>
-                    <ul class="feat-list">
-                        <li data-i18n="feat4_1">Push-Benachrichtigung bei Wunschpreis</li>
-                        <li data-i18n="feat4_2">Konfigurierbare Ruhezeiten</li>
-                        <li data-i18n="feat4_3">Intelligent: kein Notification-Spam</li>
-                    </ul>
+                    <p style="color:var(--green); font-weight:700; font-size:18px; line-height:1.5; margin-bottom:30px;">Mit ZapfNavi wird Tanken einfacher, schneller und deutlich günstiger.</p>
+                    <a href="#download" class="btn-price btn-price-primary" style="display:inline-block; padding:14px 28px; font-size:16px;">Kostenlos testen</a>
                 </div>
             </div>
         </div>
-        <div class="store-badges" id="badges-mid" style="justify-content:center;margin-top:40px"></div>
     </section>
 
-    <!-- ═══ SAVINGS ═══ -->
+    <!-- ═══ WIE VIEL KANNST DU SPAREN? ═══ -->
     <section class="section" id="savings">
-        <div class="container">
-            <div class="sec-center">
-                <span class="sec-label" data-i18n="save_label">DEINE ERSPARNIS</span>
-                <h2 class="sec-title" data-i18n="save_title">So viel sparst du mit ZapfNavi</h2>
-                <p class="sec-sub" data-i18n="save_sub">Durchschnittliche Ersparnis unserer Nutzer bei regelmäßiger
-                    Nutzung</p>
+        <div class="container" style="display:flex; flex-direction:column; align-items:center;">
+            <div class="sec-center" style="max-width:800px; margin:0 auto; text-align:center;">
+                <span class="sec-label">DEINE ERSPARNIS</span>
+                <h2 class="sec-title" style="margin-bottom:24px;">Wie viel kannst du sparen?</h2>
+                <p class="sec-sub" style="color:var(--text2); line-height:1.7; font-size:18px; margin-bottom:40px;">Viele Autofahrer unterschätzen, wie viel Geld sie jeden Monat für teuren Sprit verschwenden. Schon kleine Preisunterschiede können einen großen Unterschied machen.</p>
             </div>
-            <div class="savings-grid">
-                <div class="save-card"><span class="save-icon">⛽</span>
-                    <h3 data-i18n="save1_title">Pro Tankfüllung</h3><span class="save-val" data-i18n="save1_val">bis zu 7€</span>
-                    <p data-i18n="save1_desc">Ersparnis pro Tankvorgang</p>
+            
+            <div style="background:linear-gradient(135deg, rgba(18,18,26,0.9) 0%, rgba(25,25,35,0.95) 100%); border:1px solid var(--border-p); border-radius:24px; padding:40px; text-align:left; max-width:700px; width:100%; margin:0 auto 40px; position:relative; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.5);">
+                <div style="position:absolute; top:-20px; right:-20px; font-size:120px; opacity:0.04; transform:rotate(-15deg);">💰</div>
+                <h3 style="font-size:24px; color:#fff; font-weight:800; margin-bottom:20px;">Beispiel:</h3>
+                <div style="display:flex; flex-direction:column; gap:16px;">
+                    <div style="display:flex; align-items:flex-start; gap:12px;">
+                        <span style="font-size:20px;">⛽</span>
+                        <p style="font-size:18px; color:var(--text2); line-height:1.5;">Wenn eine Tankstelle 10 Cent günstiger pro Liter ist und du 50 Liter tankst, sparst du sofort <b style="color:var(--primary);">5€ pro Tankfüllung</b>.</p>
+                    </div>
+                    <div style="display:flex; align-items:flex-start; gap:12px;">
+                        <span style="font-size:20px;">📅</span>
+                        <p style="font-size:18px; color:var(--text2); line-height:1.5;">Wenn du 4-mal im Monat tankst<br><b style="color:var(--primary); font-size:22px; display:inline-block; margin-top:4px;">5€ × 4 = 20€ Ersparnis pro Monat</b></p>
+                    </div>
+                    <div style="display:flex; align-items:flex-start; gap:12px; margin-top:8px;">
+                        <span style="font-size:20px;">🏆</span>
+                        <p style="font-size:20px; color:var(--green); font-weight:800; line-height:1.5;">In vielen Fällen sogar 30€ oder mehr.</p>
+                    </div>
                 </div>
-                <div class="save-card"><span class="save-icon">📅</span>
-                    <h3 data-i18n="save2_title">Pro Monat</h3><span class="save-val" data-i18n="save2_val">bis zu 30€</span>
-                    <p data-i18n="save2_desc">Bei 4 Tankvorgängen/Monat</p>
-                </div>
-                <div class="save-card"><span class="save-icon">📍</span>
-                    <h3 data-i18n="save3_title">Echtzeit-Preise</h3><span class="save-val" data-i18n="save3_val">14.000+</span>
-                    <p data-i18n="save3_desc">Tankstellen in Deutschland</p>
-                </div>
-                <div class="save-card"><span class="save-icon">🔔</span>
-                    <h3 data-i18n="save4_title">Preisalarm</h3><span class="save-val" data-i18n="save4_val">24/7</span>
-                    <p data-i18n="save4_desc">Automatische Preis-Überwachung</p>
-                </div>
+            </div>
+            
+            <p class="sec-sub" style="color:var(--text2); line-height:1.7; font-size:18px; margin-bottom:30px; max-width:800px; text-align:center;">Mit ZapfNavi findest du immer die günstigste Tankstelle und vermeidest unnötige Kosten.</p>
+            <div style="text-align:center;">
+                <a href="#download" class="btn-price btn-price-primary" style="display:inline-block; padding:14px 28px; font-size:16px;">App jetzt laden</a>
             </div>
         </div>
     </section>
 
-    <!-- ═══ PRICING ═══ -->
-    <section class="section section-alt" id="pricing">
+    <!-- ═══ WARUM BESSER ALS ANDERE ═══ -->
+    <section class="section section-alt" id="better">
         <div class="container">
-            <div class="sec-center">
-                <span class="sec-label" data-i18n="price_label">PREISE & ABO-MODELL</span>
-                <h2 class="sec-title" data-i18n="price_title">Transparent & fair</h2>
-            </div>
-            <div class="trial-banner" data-i18n="price_trial">🎉 Starte mit <b>2 Tagen komplett kostenlos</b> — alle Features, kein Risiko!</div>
-            <div class="pricing-wrap" style="max-width:600px;margin:50px auto 0;">
-                <div class="price-card featured" style="max-width:100%; width:100%;">
-                    <span class="price-tag" data-i18n="plan2_tag">FÜR UNSERE SERVER</span>
-                    <div class="price-amount">2,99€ <small data-i18n="plan2_period">/ Monat</small></div>
-                    <p class="price-desc" data-i18n="plan2_desc" style="font-size:16px;">ZapfNavi bleibt fair. Wir finanzieren damit lediglich unsere Serverkosten, damit das System live und extrem schnell bleibt.</p>
-                    <ul class="price-features" style="max-width:300px;margin:20px auto 30px;">
-                        <li data-i18n="plan2_f1">Null nervige Werbung</li>
-                        <li data-i18n="plan1_f1">Alle Live-Preise für immer</li>
-                        <li data-i18n="plan2_f3">Höchste Genauigkeit</li>
-                        <li data-i18n="plan2_f4">Einfach kündbar</li>
+            <div class="showcase-item" style="flex-direction:row-reverse; align-items:center;">
+                <div class="showcase-img">
+                    <img src="assets/marketing/screenshot_2_map_v2_clear_1772968021683.png" alt="ZapfNavi Karte" style="max-width:280px; border-radius:32px; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
+                </div>
+                <div class="showcase-body">
+                    <span class="sec-label">DER VERGLEICH</span>
+                    <h2 class="sec-title" style="text-align:left; margin-bottom:24px; font-size:32px; line-height:1.2;">Warum ZapfNavi besser ist als andere Tank-Apps</h2>
+                    <p class="sec-sub" style="text-align:left; color:var(--text2); line-height:1.7; font-size:18px; margin-bottom:15px;">Viele Tank-Apps zeigen nur einfache Tankstellenlisten oder veraltete Preise. Autofahrer verschwenden dadurch weiterhin Geld, weil sie nicht immer die wirklich günstigste Tankstelle finden.</p>
+                    <p class="sec-sub" style="text-align:left; color:var(--text2); line-height:1.7; font-size:18px; margin-bottom:24px;">ZapfNavi wurde entwickelt, um dir schnell und einfach die besten Benzin- und Dieselpreise in deiner Umgebung zu zeigen.</p>
+                    <ul class="feat-list" style="margin-bottom:24px;">
+                        <li>Finde die günstigsten Tankstellen in deiner Nähe in Sekunden</li>
+                        <li>Aktuelle Benzin- und Dieselpreise in ganz Deutschland</li>
+                        <li>Einfache und schnelle Navigation direkt zur Tankstelle</li>
+                        <li>Moderne und übersichtliche App für Android</li>
+                        <li>Spare bei jeder Tankfüllung bares Geld</li>
                     </ul>
-                    <button class="btn-price btn-price-primary" data-i18n="plan2_btn">Hol dir die App</button>
+                    <p style="color:var(--green); font-weight:700; font-size:18px; line-height:1.5; margin-bottom:30px;">Mit ZapfNavi weißt du immer, wo du am günstigsten tanken kannst – ohne Zeit zu verlieren und ohne unnötig Geld auszugeben.</p>
+                    <a href="#download" class="btn-price btn-price-primary" style="display:inline-block; padding:14px 28px; font-size:16px;">Jetzt überzeugen</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══ SOCIAL PROOF ═══ -->
-    <section class="section" id="reviews">
+    <!-- ═══ VERTRAUT VON AUTOFAHRERN ═══ -->
+    <section class="section" id="trusted">
         <div class="container">
-            <div class="sec-center">
-                <span class="sec-label" data-i18n="rev_label">BEWERTUNGEN</span>
-                <h2 class="sec-title" data-i18n="rev_title">Das sagen unsere Nutzer</h2>
-            </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text" data-i18n="rev1_text">"Endlich eine App die funktioniert! Habe gestern über 8€ bei einer Tankfüllung gespart. Der Preisalarm ist genial."</p>
-                    <div class="review-author">Markus T.</div>
-                    <div class="review-loc" data-i18n="rev1_loc">München</div>
+            <div class="showcase-item" style="align-items:center;">
+                <div class="showcase-img">
+                    <img src="assets/marketing/screenshot_4_route_v2_clear_1772968058365.png" alt="Navigation" style="max-width:280px; border-radius:32px; box-shadow:0 30px 60px rgba(0,0,0,0.6);">
                 </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text" data-i18n="rev2_text">"Benutze die App täglich. Die Karte ist super übersichtlich und die Echtzeit-Preise stimmen immer. Kann ich nur empfehlen."</p>
-                    <div class="review-author">Lisa K.</div>
-                    <div class="review-loc" data-i18n="rev2_loc">Berlin</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-text" data-i18n="rev3_text">"Als Vielfahrer spare ich über 30€ im Monat. Die Routenplaner-Funktion zeigt mir günstige Tankstellen auf meiner Strecke."</p>
-                    <div class="review-author">Thomas R.</div>
-                    <div class="review-loc" data-i18n="rev3_loc">Hamburg</div>
+                <div class="showcase-body">
+                    <span class="sec-label">SOCIAL PROOF</span>
+                    <h2 class="sec-title" style="text-align:left; margin-bottom:24px; font-size:32px; line-height:1.2;">Vertraut von Autofahrern in Deutschland</h2>
+                    <p class="sec-sub" style="text-align:left; color:var(--text2); line-height:1.7; font-size:18px; margin-bottom:24px;">Immer mehr Autofahrer in Deutschland nutzen Apps, um die günstigsten Benzinpreise zu finden und beim Tanken Geld zu sparen. ZapfNavi hilft dir dabei, schnell und einfach die beste Tankstelle in deiner Nähe zu entdecken.</p>
+                    <ul class="feat-list" style="margin-bottom:24px;">
+                        <li>Schnelle Suche nach günstigen Tankstellen</li>
+                        <li>Einfache Bedienung für jeden Autofahrer</li>
+                        <li>Aktuelle Preise aus ganz Deutschland</li>
+                        <li>Entwickelt für eine schnelle und stressfreie Tankstellen-Suche</li>
+                    </ul>
+                    <p style="color:var(--primary); font-weight:800; font-size:22px; margin-bottom:12px;">Starte jetzt und spare bei jeder Tankfüllung Geld.</p>
+                    <p style="color:var(--text2); font-size:18px; margin-bottom:30px;">Lade ZapfNavi kostenlos herunter und finde die günstigste Tankstelle in deiner Nähe.</p>
+                    <a href="#download" class="btn-price btn-price-primary" style="display:inline-block; padding:14px 28px; font-size:16px;">Gratis Download</a>
                 </div>
             </div>
         </div>
@@ -264,25 +211,30 @@
     <!-- ═══ FAQ ═══ -->
     <section class="section section-alt" id="faq">
         <div class="container">
-            <div class="sec-center"><span class="sec-label">FAQ</span>
-                <h2 class="sec-title" data-i18n="faq_title">Häufige Fragen</h2>
+            <div class="sec-center">
+                <span class="sec-label">WISSENSWERTES</span>
+                <h2 class="sec-title">Häufig gestellte Fragen (FAQ)</h2>
             </div>
             <div class="faq-list">
                 <div class="faq-item">
-                    <div class="faq-q" data-i18n="faq1_q">Ist die App wirklich kostenlos?</div>
-                    <div class="faq-a" data-i18n="faq1_a">Ja! Du kannst ZapfNavi 2 Tage komplett kostenlos testen. Daarna kannst du weiter kostenlos mit Werbung nutzen, oder für 2,99€/Monat die werbefreie Version genießen.</div>
+                    <div class="faq-q">1️⃣ Was ist ZapfNavi?</div>
+                    <div class="faq-a">ZapfNavi ist eine App, die dir hilft, die günstigsten Tankstellen in deiner Nähe zu finden und Benzin- sowie Dieselpreise in Deutschland zu vergleichen. So sparst du bei jeder Tankfüllung Geld.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-q" data-i18n="faq2_q">Woher stammen die Preise?</div>
-                    <div class="faq-a" data-i18n="faq2_a">Alle Preise stammen von der offiziellen Markttransparenzstelle für Kraftstoffe (MTS-K) via Tankerkönig-API. Die Daten werden alle 5 Minuten aktualisiert.</div>
+                    <div class="faq-q">2️⃣ Wie funktioniert ZapfNavi?</div>
+                    <div class="faq-a">Die App zeigt dir in Echtzeit die aktuellen Preise aller Tankstellen in deiner Umgebung. Du kannst die Ergebnisse nach Preis oder Entfernung sortieren und direkt zur gewählten Tankstelle navigieren.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-q" data-i18n="faq3_q">Welche Tankstellen werden angezeigt?</div>
-                    <div class="faq-a" data-i18n="faq3_a">Über 14.000 Tankstellen in ganz Deutschland — alle Marken: Aral, Shell, JET, Total, ESSO, Star, und viele mehr.</div>
+                    <div class="faq-q">3️⃣ Ist ZapfNavi kostenlos?</div>
+                    <div class="faq-a">Ja! ZapfNavi ist komplett kostenlos verfügbar. Zusätzlich gibt es Premium-Features für noch schnellere Updates und personalisierte Empfehlungen.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-q" data-i18n="faq4_q">Kann ich das Abo jederzeit kündigen?</div>
-                    <div class="faq-a" data-i18n="faq4_a">Ja, absolut. Das Premium-Abo ist jederzeit kündbar. Keine versteckten Kosten, keine Mindestlaufzeit.</div>
+                    <div class="faq-q">4️⃣ Auf welchen Geräten funktioniert die App?</div>
+                    <div class="faq-a">ZapfNavi ist für Android-Geräte verfügbar und wird regelmäßig aktualisiert, um eine reibungslose Bedienung zu gewährleisten.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">5️⃣ Wie viel kann ich sparen?</div>
+                    <div class="faq-a">Viele Nutzer berichten, dass sie durch die App zwischen 20€ und 30€ pro Monat sparen, abhängig davon, wie oft sie tanken und wie stark die Preisunterschiede zwischen den Tankstellen sind.</div>
                 </div>
             </div>
         </div>
